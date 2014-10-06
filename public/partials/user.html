@@ -1,0 +1,84 @@
+<div class="main-container transition center-container">
+    <div id="card-usuario-deslogado"
+         class="card"
+         ng-if="userCtrl.user.isNew()">
+
+        <h1 class="title">User</h1>
+
+        <form name="userForm" ng-submit="userCtrl.save(userCtrl.user)">
+            <div>
+                <label class="block">username</label>
+                <input type="text"
+                       maxlength="33"
+                       ng-maxlength="33"
+                       ng-minlength="3"
+                       required
+                       ng-model="userCtrl.user.username"
+                       class="no-outline"
+                       ng-blur="userCtrl.lookForUser(username)"
+                       autofocus/>
+
+                <label class="block default-margin-top">password</label>
+                <input type="password"
+                       maxlength="33"
+                       ng-maxlength="33"
+                       ng-minlength="3"
+                       required
+                       ng-model="userCtrl.user.password"
+                       class="no-outline" />
+            </div>
+
+            <div class="right">
+                <!--<button type="button"
+                        class="submit-button no-outline hand"
+                        ng-disabled="userForm.$invalid || userCtrl.user.isInvalid()"
+                        ng-click="userCtrl.save(userCtrl.user)">sign up</button>-->
+
+                <button type="button"
+                        class="submit-button no-outline hand"
+                        ng-disabled="userForm.$invalid || userCtrl.user.isInvalid()"
+                        ng-click="userCtrl.login(userCtrl.user)">login</button>
+
+                <button type="button"
+                        class="cancel-button no-outline hand"
+                        emd-change-location-to="/">back</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div id="card-usuario-logado"
+         class="card"
+         ng-if="!userCtrl.user.isNew()">
+
+        <h1 class="title">about {{userCtrl.user.username}}</h1>
+
+        <div id="user-info-container" class="card-padding">
+            <div>
+                <i class="fa fa-user icon-rounded"></i>
+                <span id="username">{{userCtrl.user.username}}</span>
+            </div>
+
+            <div class="default-margin-top">
+                <p id="user-type">user is a <span class="important">{{userCtrl.user.type}}</span>.</p>
+            </div>
+
+            <div class="default-margin-top">
+                <p id="user-posts">posted <span class="important">456454</span> times.</p>
+            </div>
+
+            <div class="default-margin-top">
+                <p id="user-comment">commented <span class="important">87987</span> times.</p>
+            </div>
+
+            <div class="default-margin-top">
+                <p id="user-loved-back">received <span class="important">{{userCtrl.user.smiles}}</span> smiles.</p>
+            </div>
+
+            <div class="default-margin-top">
+                <p id="user-loved-a-few">smiled at <span class="important">87987</span> posts.</p>
+            </div>
+        </div>
+
+    </div>
+</div>

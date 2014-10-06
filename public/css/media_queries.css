@@ -1,0 +1,27 @@
+@media (min-width: 40em)
+{
+    .card img {width: auto;}
+    .card form {padding: 1em 2em;}
+}
+
+@media (min-width: 50em)
+{
+    #logo {width: 10em; border: 10px solid orange;}
+
+    .title {font-size: 2em;}
+    .filter {width: 60%; float: right;}
+    .visible-mobile {display: none;}
+    .visible-desktop {display: block;}
+    .main-container, header {width: 70%;}
+    .options {position: fixed; top: -24.5em; left: 0;}
+    .card {margin-bottom: 3em;}
+    .card .post-content {padding-left: .5em; padding-right: .5em;}
+
+    header {text-align: left;}
+    body {margin: 0;}
+}
+
+@media (min-width: 70em)
+{
+    .main-container, header {width: 50%; max-width: 70em; margin-top: 2em;}
+}

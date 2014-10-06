@@ -1,0 +1,35 @@
+{
+  "name": "emd-blog",
+  "version": "0.0.0",
+  "description": "",
+  "main": "go.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests/backend --watch --recursive --check-leaks --reporter min"
+  },
+  "author": "Eric Mendes Dantas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "cookie-parser": "^1.3.3",
+    "express": "^4.9.5",
+    "mongoose": "^3.8.16",
+    "morgan": "^1.3.1",
+    "q": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "chai-as-promised": "^4.1.1",
+    "karma": "^0.12.23",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-coverage": "^0.2.6",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-jasmine": "^0.1.5",
+    "karma-opera-launcher": "^0.1.0",
+    "karma-safari-launcher": "^0.1.1",
+    "protractor": "^1.3.1"
+  }
+}

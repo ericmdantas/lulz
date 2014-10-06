@@ -1,0 +1,12 @@
+.hand:not([disabled]):hover {cursor: pointer;}
+.no-outline:focus, .no-outline:active {outline: 0;}
+.filter:focus {box-shadow: 0 0 1px orange;}
+.card:hover {border: 1px solid rgba(255, 165, 0, 0.8);}
+.card:hover .post-info {color: #333;}
+.options:hover {top: 0;}
+.options:hover .plus-info {visibility: collapse;}
+.options li:hover {opacity: 1;}
+.comment:hover, .smile:hover {font-weight: bold;}
+.comment:hover {color: deepskyblue;}
+.smile:hover {color: red;}
+.submit-button:not([disabled]):active {background-color: orange;}

@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html ng-app="lulz">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+        <link rel="shortcut icon" type="image/ico" href="img/smile.png"/>
+        <title>lulz!</title>
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/positioning.css" />
+        <link rel="stylesheet" type="text/css" href="css/media_queries.css" />
+        <link rel="stylesheet" type="text/css" href="css/events.css" />
+    </head>
+    <body ng-controller="RootController as rootCtrl">
+        <header class="transition center-container hand" emd-change-location-to="/">
+            <img src="img/lulz.png" id="logo" class="transition"/>
+        </header>
+
+        <emd-options></emd-options>
+
+        <ng-view></ng-view>
+
+        <!-- frameworks -->
+        <script type="text/javascript" src="js/frameworks/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/angular.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/angular-resource.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/angular-route.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/angular-touch.min.js"></script>
+
+        <!-- validator -->
+        <script type="text/javascript" src="js/application/services/ValidatorService.js"></script>
+
+        <!-- app -->
+        <script type="text/javascript" src="js/application/lulz.js"></script>
+
+        <!-- routes -->
+        <script type="text/javascript" src="js/application/routes/routes.js"></script>
+
+        <!-- models -->
+        <script type="text/javascript" src="js/application/models/Post.js"></script>
+        <script type="text/javascript" src="js/application/models/User.js"></script>
+
+        <!-- resources -->
+        <script type="text/javascript" src="js/application/resources/UserResource.js"></script>
+        <script type="text/javascript" src="js/application/resources/PostResource.js"></script>
+
+        <!-- services -->
+        <script type="text/javascript" src="js/application/services/UserService.js"></script>
+        <script type="text/javascript" src="js/application/services/PostService.js"></script>
+
+        <!-- controllers -->
+        <script type="text/javascript" src="js/application/controllers/RootController.js"></script>
+        <script type="text/javascript" src="js/application/controllers/MainController.js"></script>
+        <script type="text/javascript" src="js/application/controllers/UserController.js"></script>
+        <script type="text/javascript" src="js/application/controllers/PostController.js"></script>
+
+        <!-- directives -->
+        <script type="text/javascript" src="js/application/directives/emd-options-directive.js"></script>
+        <script type="text/javascript" src="js/application/directives/emd-change-location-directive.js"></script>
+    </body>
+</html>
