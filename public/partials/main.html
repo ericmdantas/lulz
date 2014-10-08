@@ -11,23 +11,23 @@
     </div>
 
     <div class="card transition"
-         ng-repeat="card in mainCtrl.cards | filter: search">
+         ng-repeat="post in mainCtrl.posts | filter: search | orderBy: '-createdAt'">
 
-        <h1 class="title hand">{{card.title}}</h1>
+        <h1 class="title hand">{{post.title}}</h1>
 
         <div class="post-content">
 
-            <img src="{{card.img}}" />
+            <img ng-src="{{post.imageUrl}}" />
 
             <div class="post-info right transition">
                 <span class="smile hand">
                     <i class="fa fa-smile-o"></i>
-                     {{card.loves}}
+                     {{post.smiles}}
                 </span>
 
                 <span class="comment hand">
                     <i class="fa fa-comments-o"></i>
-                    {{card.comments}}
+                    {{post.comments}}
                 </span>
             </div>
         </div>

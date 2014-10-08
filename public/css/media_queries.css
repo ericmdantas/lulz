@@ -14,7 +14,6 @@
     .visible-desktop {display: block;}
     .main-container, header {width: 70%;}
     .options {position: fixed; top: -24.5em; left: 0;}
-    .card {margin-bottom: 3em;}
     .card .post-content {padding-left: .5em; padding-right: .5em;}
 
     header {text-align: left;}

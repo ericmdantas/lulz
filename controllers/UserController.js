@@ -1,11 +1,13 @@
 "use strict";
 
-(function(User)
+(function(User, Auth)
 {
     var _lookForUser = function(req, res)
     {
         var _onSuccess = function(user)
         {
+            Auth.authenticate(res, user._id);
+
             res
                 .status(200)
                 .send(user);
@@ -68,4 +70,5 @@
     exports.lookForUser = _lookForUser;
     exports.createUser = _createUser;
 
-}(require('../models/User')))
+}(require('../models/User'),
+  require('../services/Authentication')))

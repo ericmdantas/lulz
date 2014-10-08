@@ -2,6 +2,22 @@
 
 (function(mongoose, q, postSchema, validator)
 {
+    postSchema.methods.getAll = function()
+    {
+        var deferred = q.defer();
+        var _query = {};
+
+        Post
+            .find(_query)
+            .exec(function(error, posts)
+            {
+                error ? deferred.reject(error)
+                    : deferred.resolve(posts);
+            })
+
+        return deferred.promise;
+    }
+
     postSchema.methods.getById = function(id)
     {
         var deferred = q.defer();
@@ -18,22 +34,6 @@
             {
                 err ? deferred.reject(err)
                     : deferred.resolve(post);
-            })
-
-        return deferred.promise;
-    }
-
-    postSchema.methods.getAll = function()
-    {
-        var deferred = q.defer();
-        var _query = {};
-
-        Post
-            .find(_query)
-            .exec(function(error, posts)
-            {
-                error ? deferred.reject(error)
-                      : deferred.resolve(posts);
             })
 
         return deferred.promise;

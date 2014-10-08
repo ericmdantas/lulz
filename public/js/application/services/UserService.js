@@ -1,6 +1,6 @@
 "use strict";
 
-lulz.service('UserService', ['$q', 'UserResource', function($q, UserResource)
+lulz.service('UserService', ['$q', 'UserResource', 'StorageService', function($q, UserResource, StorageService)
 {
     var _login = function(user)
     {
@@ -15,6 +15,8 @@ lulz.service('UserService', ['$q', 'UserResource', function($q, UserResource)
         var _onSuccess = function(user)
         {
             var _user = user || {};
+
+            StorageService.save('U', _user);
 
             deferred.resolve(_user);
         }

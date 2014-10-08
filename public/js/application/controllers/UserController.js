@@ -1,10 +1,10 @@
 "use strict";
 
-lulz.controller('UserController', ['UserService', 'User', function(UserService, User)
+lulz.controller('UserController', ['UserService', 'User', 'StorageService', function(UserService, User, StorageService)
 {
     var self = this;
 
-    self.user = User.new();
+    self.user = User.new(StorageService.get('U'));
 
     self.save = function(user)
     {

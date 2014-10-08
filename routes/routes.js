@@ -1,6 +1,6 @@
 "use strict";
 
-(function(contentController, userController, postController)
+(function(Auth, contentController, userController, postController)
 {
     var BASE_PROTECTED_API = '/api/protected/';
 
@@ -26,7 +26,7 @@
         router
             .route(BASE_PROTECTED_API + 'post')
             .get(postController.getAll)
-            .post(postController.createPost);
+            .post(Auth.isLoggedIn, postController.createPost);
 
         router
             .route(BASE_PROTECTED_API + 'post/:id')
@@ -44,6 +44,7 @@
 
     exports.init = _init;
 
-}(require('../controllers/ContentController'),
+}(require('../services/Authentication'),
+  require('../controllers/ContentController'),
   require('../controllers/UserController'),
   require('../controllers/PostController')))

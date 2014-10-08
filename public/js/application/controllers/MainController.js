@@ -1,20 +1,20 @@
 "use strict";
 
-lulz.controller('MainController', [function()
+lulz.controller('MainController', ['PostService', function(PostService)
 {
-    this.cards =
-        [{title: 'flash',
-          img: 'http://i.imgur.com/HX7bVsE.jpg',
-          comments: 10,
-          loves: 11},
+    var self = this;
 
-         {title: 'oxygen',
-          img: 'http://i.imgur.com/UlGBUD2.png',
-          comments: 0,
-          loves: 99},
+    var _getPosts = function()
+    {
+        var _onSuccess = function(posts)
+        {
+            self.posts = posts;
+        }
 
-         {title: 'anniversary',
-          img: 'http://i.imgur.com/0urQMj3.jpg',
-          comments: 11,
-          loves: 88}];
+        PostService
+            .getAll()
+            .then(_onSuccess);
+    }
+
+    _getPosts();
 }])

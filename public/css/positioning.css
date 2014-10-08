@@ -11,7 +11,7 @@
 .options li {padding: .5em 0; width: 3em; text-align: center; font-size: 2em;}
 .center-container {margin: 0 auto;}
 .main-container, header {width: 100%; margin-top: 1em; max-width: 50em;}
-.card {margin-bottom: 1em; overflow: hidden; position: relative;}
+.card {margin-bottom: 3em; overflow: hidden; position: relative;}
 .card form, .card .card-padding {padding: .5em; overflow: hidden;}
 .card form input {width: 100%; box-sizing: border-box;}
 .card img {text-align: center; width: 100%; max-width: 100%;}

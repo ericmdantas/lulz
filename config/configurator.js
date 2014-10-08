@@ -7,7 +7,7 @@
         app.use(express.static(dir + '/public'));
         app.use(morgan('dev'));
         app.use(bodyParser());
-        app.use(cookieParser('test'));
+        app.use(cookieParser('secretgoesheeeeeeeere'));
     }
 
     exports.config = _config;

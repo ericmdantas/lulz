@@ -39,6 +39,28 @@
         return deferred.promise;
     }
 
+    userSchema.methods.getById = function(id)
+    {
+        var deferred = q.defer();
+
+        if (validator.isStringInvalid(id))
+        {
+            deferred.reject(new Error('Não é possível buscar o usuário pelo id, string inválida.'));
+            return deferred.promise;
+        }
+
+        User
+            .findById(id)
+            .select('-password')
+            .exec(function(err, user)
+            {
+                err ? deferred.reject(err)
+                    : deferred.resolve(user);
+            })
+
+        return deferred.promise;
+    }
+
     userSchema.methods.createUser = function(user)
     {
         var deferred = q.defer();

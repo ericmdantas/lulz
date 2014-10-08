@@ -111,16 +111,75 @@ describe('User', function()
             {
                 expect(user).to.be.defined;
                 expect(user).to.be.an.instanceof(_User);
-                expect(user.username).to.be.defined;
-                expect(user.type).to.be.defined;
-                expect(user.smiles).to.be.defined;
-                expect(user.password).not.to.exist;
+                expect(user).not.to.have.property('password');
+                expect(user).to.have.property('_id');
+                expect(user).to.have.property('username').and.to.equal('ericmdantas');
+                expect(user).to.have.property('type').and.to.equal('9999');
+                expect(user).to.have.property('smiles').and.to.equal(0);
 
                 done();
             }
 
             _userInstance
                 .lookForUser(_user)
+                .then(_onSuccess);
+        })
+    })
+
+    describe('getById', function()
+    {
+        beforeEach(function(done)
+        {
+            helper
+                .createUser()
+                .then(function()
+                {
+                    done();
+                })
+        })
+
+        afterEach(function(done)
+        {
+            _User.remove(done);
+        })
+
+        it('should reject with an error, id is invalid', function(done)
+        {
+            var _invalidIds = helper.invalidStrings();
+
+            var _onError = function(error)
+            {
+                expect(error).to.be.defined;
+                expect(error).to.be.an.instanceof(Error);
+                expect(error).to.match(/Não é possível buscar o usuário pelo id, string inválida./);
+            }
+
+            for (var i = 0; i < _invalidIds.length; i++)
+            {
+                _userInstance
+                    .getById(_invalidIds[i])
+                    .then(null, _onError);
+            }
+
+            done();
+        })
+
+        it('should get the user correctly', function(done)
+        {
+            var _id = '507f191e810c19729de860ed';
+
+            var _onSuccess = function(user)
+            {
+                expect(user).to.be.defined;
+                expect(user).to.have.property('username').and.to.equal('ericmdantas');
+                expect(user).to.have.property('type').and.to.equal('9999');
+                expect(user).to.not.have.property('password');
+
+                done();
+            }
+
+            _userInstance
+                .getById(_id)
                 .then(_onSuccess);
         })
     })
