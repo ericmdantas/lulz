@@ -2,7 +2,7 @@
 
 lulz.directive('emdOptions', ['OPTIONS', function(OPTIONS)
 {
-    var _template = '<div class="options visible-desktop transition">'+
+    var _template = '<div class="options transition">'+
                         '<ul>'+
                             '<li ng-repeat="opt in options" ' +
                                 'class="hand" ' +

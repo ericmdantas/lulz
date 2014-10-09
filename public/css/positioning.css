@@ -2,13 +2,15 @@
 #username {margin-left: .5em; font-size: 2em; vertical-align: super;}
 #user-info-container .default-margin-top {margin-left: 6.2em;}
 
+.lulz-written {font-size: 3em; float: right; margin-top: .3em;}
 .default-margin-top {margin-top: 1em;}
 .big-margin-top {margin-top: 2em;}
 .submit-button, .cancel-button {padding: .6em 1.5em; margin: 2em 0 0;}
 .block {display: block;}
 .comment {margin-left: 1em;}
+.options {position: absolute; top: -24em; left: 0; z-index: 1;}
 .options ul {margin: 0;}
-.options li {padding: .5em 0; width: 3em; text-align: center; font-size: 2em;}
+.options li {padding: .5em 0; width: 1.5em; text-align: center; font-size: 2em;}
 .center-container {margin: 0 auto;}
 .main-container, header {width: 100%; margin-top: 1em; max-width: 50em;}
 .card {margin-bottom: 3em; overflow: hidden; position: relative;}
