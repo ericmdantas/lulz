@@ -6,7 +6,6 @@ lulz.config(['$provide', '$httpProvider', function($provide, $httpProvider)
     {
         var _request = function(config)
         {
-            //$httpProvider.defaults.headers.common['token'] = StorageService.get('U') ? StorageService.get('U')._id : null;
             return config || $q.when(config);
         }
 

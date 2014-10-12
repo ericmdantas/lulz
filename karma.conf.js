@@ -20,8 +20,6 @@ module.exports = function(config) {
       'public/js/frameworks/angular.min.js',
       'public/js/frameworks/*.js',
 
-      'public/js/application/services/ValidatorService.js',
-
       'public/js/application/lulz.js',
       'public/js/application/**/*.js',
 

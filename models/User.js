@@ -81,5 +81,5 @@
 
     module.exports = User;
 
-}(require('mongoose'), require('q'), require('../schemas/UserSchema').UserSchema, require('../public/js/application/services/ValidatorService')))
+}(require('mongoose'), require('q'), require('../schemas/UserSchema').UserSchema, require('../services/ValidatorService')))
 

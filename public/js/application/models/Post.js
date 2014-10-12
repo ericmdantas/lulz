@@ -33,10 +33,10 @@ lulz.factory('Post', [function()
 
         isInvalid: function()
         {
-            var _isTitleInvalid = validator.isStringInvalid(this.title);
-            var _isImageUrl = validator.isStringInvalid(this.imageUrl);
+            var _isTitleInvalid = !angular.isString(this.title);
+            var _isImageUrl = !angular.isString(this.imageUrl);
             //var _isAuthorInvalid = validator.isStringInvalid(this.author);
-            var _isLanguage = validator.isStringInvalid(this.language);
+            var _isLanguage = !angular.isString(this.language);
 
             return (_isTitleInvalid || _isImageUrl || _isLanguage) //|| _isAuthorInvalid);
         }

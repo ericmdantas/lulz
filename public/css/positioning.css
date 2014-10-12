@@ -1,6 +1,7 @@
 #logo {width: 5em;}
 #username {margin-left: .5em; font-size: 2em; vertical-align: super;}
 #user-info-container .default-margin-top {margin-left: 6.2em;}
+#to-the-top {position: fixed; bottom: .3em; left: .3em; padding: 0 .5em .3em .5em; font-size: 3em;}
 
 .lulz-written {font-size: 3em; float: right; margin-top: .3em;}
 .default-margin-top {margin-top: 1em;}

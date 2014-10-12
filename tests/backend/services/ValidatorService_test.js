@@ -1,5 +1,9 @@
 "use strict";
 
+var _validator = require('../../../services/ValidatorService');
+var expect = require('chai').expect;
+var helper = require('../helper/helper');
+
 describe('ValidatorService', function()
 {
     describe('isStringInvalid', function()
@@ -10,14 +14,14 @@ describe('ValidatorService', function()
 
             for (var i = 0; i < _invalidStrings.length; i++)
             {
-                expect(validator.isStringInvalid(_invalidStrings[i])).toBeTruthy();
+                expect(_validator.isStringInvalid(_invalidStrings[i])).to.be.true;;
             }
         })
 
         it('should return false - string is valid', function()
         {
             var _validString = 'a';
-            expect(validator.isStringInvalid(_validString)).toBeFalsy();
+            expect(_validator.isStringInvalid(_validString)).to.be.false;;
         })
     })
 
@@ -29,7 +33,7 @@ describe('ValidatorService', function()
 
             for (var i = 0; i < _invalid.length; i++)
             {
-                expect(validator.isNumberInvalid(_invalid[i])).toBeTruthy();
+                expect(_validator.isNumberInvalid(_invalid[i])).to.be.true;;
             }
         })
 
@@ -37,11 +41,11 @@ describe('ValidatorService', function()
         {
             var _num = 0;
 
-            expect(validator.isNumberInvalid(_num)).toBeFalsy();
+            expect(_validator.isNumberInvalid(_num)).to.be.false;;
 
             _num = 1;
 
-            expect(validator.isNumberInvalid(_num)).toBeFalsy();
+            expect(_validator.isNumberInvalid(_num)).to.be.false;;
         })
     })
 
@@ -53,7 +57,7 @@ describe('ValidatorService', function()
 
             for (var i = 0; i < _invalidObjects.length; i++)
             {
-                expect(validator.isObjectInvalid(_invalidObjects[i])).toBeTruthy();
+                expect(_validator.isObjectInvalid(_invalidObjects[i])).to.be.true;;
             }
         })
 
@@ -61,7 +65,7 @@ describe('ValidatorService', function()
         {
             var _obj = {a: 1};
 
-            expect(validator.isObjectInvalid(_obj)).toBeFalsy();
+            expect(_validator.isObjectInvalid(_obj)).to.be.false;;
         })
     })
 })

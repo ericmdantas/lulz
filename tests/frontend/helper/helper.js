@@ -2,7 +2,7 @@ var helper = (function()
 {
     var _invalidStrings = function()
     {
-        return ['', ' ', {}, [], 1, 0, 0000000, true, false, function(){}];
+        return [{}, [], 1, 0, 0000000, true, false, function(){}];
     }
 
     var _invalidNumbers = function()

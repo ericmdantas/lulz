@@ -30,7 +30,7 @@ lulz.service('PostService', ['$q', 'PostResource', function($q, PostResource)
     {
         var deferred = $q.defer();
 
-        if (validator.isStringInvalid(id))
+        if (!angular.isString(id))
         {
             deferred.reject(new Error('Não é possível buscar o post, id inválido.'));
             return deferred.promise;
@@ -60,7 +60,7 @@ lulz.service('PostService', ['$q', 'PostResource', function($q, PostResource)
     {
         var deferred = $q.defer();
 
-        if (post.isInvalid())
+        if (!angular.isObject(post) || !angular.isFunction(post.isInvalid) || post.isInvalid())
         {
             deferred.reject(new Error('Não é possível criar o post, objeto inválido.'));
             return deferred.promise;
@@ -78,12 +78,13 @@ lulz.service('PostService', ['$q', 'PostResource', function($q, PostResource)
 
         PostResource
             .save(post)
+            .$promise
             .then(_onSuccess, _onError);
 
         return deferred.promise;
     }
 
-    this.createPost = _createPost;
     this.getAll = _getAll;
     this.getById = _getById;
+    this.createPost = _createPost;
 }])

@@ -62,4 +62,4 @@
 }(require('mongoose'),
   require('q'),
   require('../schemas/PostSchema').PostSchema,
-  require('../public/js/application/services/ValidatorService')))
+  require('../services/ValidatorService')))

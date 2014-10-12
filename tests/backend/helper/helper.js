@@ -12,6 +12,11 @@
         return [null, undefined, ' ', '', true, false, 0, 1, function(){}, {}, []];
     }
 
+    var _invalidNumbers = function()
+    {
+        return [null, undefined, ' ', '', true, false, function(){}, {}, []];
+    }
+
     var _createUser = function(array)
     {
         var DEFAULT_ARRAY = [{_id: '507f191e810c19729de860ea', username: 'aaa', password: 'b', type: "1"},
@@ -47,6 +52,7 @@
 
     exports.invalidStrings = _invalidStrings;
     exports.invalidObjects = _invalidObjects;
+    exports.invalidNumbers = _invalidNumbers;
     exports.createUser = _createUser;
     exports.createPost = _createPost;
     exports.configMongoose = _configMongoose;

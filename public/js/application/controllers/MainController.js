@@ -1,6 +1,6 @@
 "use strict";
 
-lulz.controller('MainController', ['PostService', function(PostService)
+lulz.controller('MainController', ['PostService', 'SocketService', function(PostService, SocketService)
 {
     var self = this;
 
@@ -14,6 +14,11 @@ lulz.controller('MainController', ['PostService', function(PostService)
         PostService
             .getAll()
             .then(_onSuccess);
+    }
+
+    self.smileAtPost = function(id)
+    {
+        SocketService.emit('post:smile', {postId: id});
     }
 
     _getPosts();

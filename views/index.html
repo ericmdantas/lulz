@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html ng-app="lulz">
+<html ng-app="lulz" ng-controller="RootController as rootCtrl">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <link rel="shortcut icon" type="image/ico" href="img/smile.png"/>
@@ -11,7 +11,7 @@
         <link rel="stylesheet" type="text/css" href="css/media_queries.css" />
         <link rel="stylesheet" type="text/css" href="css/events.css" />
     </head>
-    <body ng-controller="RootController as rootCtrl">
+    <body ng-click="rootCtrl.test()">
         <header class="transition center-container hand" emd-change-location-to="/">
             <img src="img/lulz.png" id="logo" class="transition"/>
             <span class="lulz-written visible-desktop">for the lulz!</span>
@@ -21,15 +21,15 @@
 
         <ng-view></ng-view>
 
+        <to-the-top></to-the-top>
+
         <!-- frameworks -->
         <script type="text/javascript" src="js/frameworks/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/frameworks/angular.min.js"></script>
         <script type="text/javascript" src="js/frameworks/angular-resource.min.js"></script>
         <script type="text/javascript" src="js/frameworks/angular-route.min.js"></script>
         <script type="text/javascript" src="js/frameworks/angular-touch.min.js"></script>
-
-        <!-- validator -->
-        <script type="text/javascript" src="js/application/services/ValidatorService.js"></script>
+        <script type="text/javascript" src="socket.io/socket.io.js"></script>
 
         <!-- app -->
         <script type="text/javascript" src="js/application/lulz.js"></script>
@@ -52,6 +52,7 @@
         <script type="text/javascript" src="js/application/services/UserService.js"></script>
         <script type="text/javascript" src="js/application/services/PostService.js"></script>
         <script type="text/javascript" src="js/application/services/StorageService.js"></script>
+        <script type="text/javascript" src="js/application/services/SocketService.js"></script>
 
         <!-- controllers -->
         <script type="text/javascript" src="js/application/controllers/RootController.js"></script>
@@ -62,5 +63,6 @@
         <!-- directives -->
         <script type="text/javascript" src="js/application/directives/emd-options-directive.js"></script>
         <script type="text/javascript" src="js/application/directives/emd-change-location-directive.js"></script>
+        <script type="text/javascript" src="js/application/directives/emd-to-the-top-directive.js"></script>
     </body>
 </html>

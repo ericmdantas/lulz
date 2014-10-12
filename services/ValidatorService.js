@@ -1,8 +1,6 @@
 "use strict";
 
-var validator = {};
-
-(function(exports)
+(function()
 {
     var _isStringInvalid = function(str)
     {
@@ -26,4 +24,4 @@ var validator = {};
     exports.isNumberInvalid = _isNumberInvalid;
     exports.isObjectInvalid = _isObjectInvalid;
 
-}('undefined' === typeof exports ? validator : exports))
+}())

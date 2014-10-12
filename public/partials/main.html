@@ -20,14 +20,15 @@
             <img ng-src="{{post.imageUrl}}" />
 
             <div class="post-info right transition">
-                <span class="smile hand">
+                <span class="smile hand"
+                      ng-click="mainCtrl.test(post._id)">
                     <i class="fa fa-smile-o"></i>
                      {{post.smiles}}
                 </span>
 
                 <span class="comment hand">
                     <i class="fa fa-comments-o"></i>
-                    {{post.comments}}
+                    {{post.comments || 0}}
                 </span>
             </div>
         </div>

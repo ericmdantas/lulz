@@ -34,9 +34,9 @@ lulz.factory('User', [function()
 
         isInvalid: function()
         {
-            var _isUsernameInvalid = validator.isStringInvalid(this.username);
-            var _isLanguageInvalid = validator.isStringInvalid(this.language);
-            var _isTypeInvalid = validator.isStringInvalid(this.type);
+            var _isUsernameInvalid = !angular.isString(this.username);
+            var _isLanguageInvalid = !angular.isString(this.language);
+            var _isTypeInvalid = !angular.isString(this.type);
 
             return (_isUsernameInvalid || _isLanguageInvalid || _isTypeInvalid);
         }

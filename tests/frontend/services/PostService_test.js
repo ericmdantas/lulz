@@ -2,7 +2,7 @@
 
 describe('PostService', function()
 {
-    var _PostService, _httpMock;
+    var _PostService, _httpMock, _Post;
     var POST_URL = '/api/protected/post';
     var GET_ALL_URL = '/api/protected/post';
     var GET_BY_ID_URL = '/api/protected/post/';
@@ -11,6 +11,7 @@ describe('PostService', function()
 
     beforeEach(inject(function($injector)
     {
+        _Post = $injector.get('Post');
         _PostService = $injector.get('PostService');
         _httpMock = $injector.get('$httpBackend');
     }))
@@ -89,6 +90,57 @@ describe('PostService', function()
 
     describe('createPost', function()
     {
+        it('should reject with an error, post object is not valid', function()
+        {
+            var _invalidPosts = helper.invalidStrings();
 
+            var _onError = function(error)
+            {
+                expect(error).toBeDefined();
+                expect(error instanceof Error).toBeTruthy();
+                expect(error).toMatch(/'Não é possível criar o post, objeto inválido.'/);
+            }
+
+            for (var i = 0; i < _invalidPosts.length; i++)
+            {
+                _PostService
+                    .createPost(_invalidPosts[i])
+                    .then(null, _onError);
+            }
+        })
+
+        it('should create the post, but the server returns error', function()
+        {
+            _httpMock.expectPOST(POST_URL, {title: 'a', imageUrl: 'b', language: 'EN'}).respond(500, {error: 123});
+            var _post = new _Post({title: 'a', imageUrl: 'b', language: 'EN'});
+
+            var _onError = function(error)
+            {
+                expect(error.data.error).toEqual(123);
+            }
+
+            _PostService
+                .createPost(_post)
+                .then(null, _onError);
+
+            _httpMock.flush();
+        })
+
+        it('should create the post successfully', function()
+        {
+            _httpMock.expectPOST(POST_URL, {title: 'a', imageUrl: 'b', language: 'EN'}).respond(200);
+            var _post = new _Post({title: 'a', imageUrl: 'b', language: 'EN'});
+
+            var _onSuccess = function()
+            {
+                expect(true).toBeTruthy();
+            }
+
+            _PostService
+                .createPost(_post)
+                .then(_onSuccess);
+
+            _httpMock.flush();
+        })
     })
 })

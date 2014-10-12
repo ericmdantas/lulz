@@ -6,7 +6,7 @@ lulz.service('UserService', ['$q', 'UserResource', 'StorageService', function($q
     {
         var deferred = $q.defer();
 
-        if (user.isInvalid())
+        if (!angular.isObject(user) || !angular.isFunction(user.isInvalid) || user.isInvalid())
         {
             deferred.reject(new Error('Usuário informado não é válido. Não é possível fazer login.'));
             return deferred.promise;
@@ -38,7 +38,7 @@ lulz.service('UserService', ['$q', 'UserResource', 'StorageService', function($q
     {
         var deferred = $q.defer();
 
-        if (user.isInvalid())
+        if (!angular.isObject(user) || !angular.isFunction(user.isInvalid) || user.isInvalid())
         {
             deferred.reject(new Error('Usuário não é válido. Não é possível cadastrá-lo.'));
             return deferred.promise;
