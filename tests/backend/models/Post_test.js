@@ -207,4 +207,65 @@ describe('Post', function()
                 .then(_onSuccess, _onError);
         })
     })
+
+    describe('likePost', function()
+    {
+        beforeEach(function(done)
+        {
+            helper
+                .createPost()
+                .then(function()
+                {
+                    done();
+                });
+        })
+
+        afterEach(function(done)
+        {
+            _Post.remove(done);
+        })
+
+        it('should reject with error id is not valid', function(done)
+        {
+            var _ids = helper.invalidStrings();
+
+            var _onError = function(error)
+            {
+                expect(error).to.be.defined;
+                expect(error).to.be.an.instanceof(Error);
+                expect(error).to.match(/Não é possível curtir o post em questão, id inválido./);
+            }
+
+            for (var i = 0; i < _ids.length; i++)
+            {
+                _postInstance
+                    .likePost(_ids[i])
+                    .then(null, _onError);
+            }
+
+            done();
+        })
+
+        it('should like the post correctly', function(done)
+        {
+            var _id = '507f191e810c19729de860ec';
+
+            var _onSuccess = function(post)
+            {
+                expect(post).to.be.defined;
+                expect(post).to.have.property('_id').and.to.not.be.undefined;
+                expect(post).to.have.property('smiles').and.to.be.equal(1);
+
+                expect(post).to.not.have.property('title');
+                expect(post).to.not.have.property('comments');
+                expect(post).to.not.have.property('username');
+
+                done();
+            }
+
+            _postInstance
+                .likePost(_id)
+                .then(_onSuccess);
+        })
+    })
 })

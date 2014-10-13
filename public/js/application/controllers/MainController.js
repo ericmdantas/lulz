@@ -16,10 +16,28 @@ lulz.controller('MainController', ['PostService', 'SocketService', function(Post
             .then(_onSuccess);
     }
 
-    self.smileAtPost = function(id)
+    var _listenSocket = function()
     {
-        SocketService.emit('post:smile', {postId: id});
+        SocketService.on('post:smiledAt', function(obj)
+        {
+            for (var i = 0; i < self.posts.length; i++)
+            {
+                if (self.posts[i]._id === obj._id)
+                {
+                    self.posts[i].smiles = obj.smiles;
+                    break;
+                }
+            }
+        })
     }
 
+    self.smileAtPost = function(id)
+    {
+        if (angular.isString(id))
+            SocketService.emit('post:smile', id);
+    }
+
+
     _getPosts();
+    _listenSocket();
 }])

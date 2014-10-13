@@ -95,8 +95,21 @@
             .done();
     }
 
+    var _likePost = function(io, id)
+    {
+        var _onSuccess = function(post)
+        {
+            io.emit('post:smiledAt', post);
+        }
+
+        new Post()
+            .likePost(id)
+            .then(_onSuccess);
+    }
+
     exports.getAll = _getAll;
     exports.getById = _getById;
     exports.createPost = _createPost;
+    exports.likePost = _likePost;
 
 }(require('../models/Post')))
