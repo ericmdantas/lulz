@@ -58,5 +58,5 @@
     exports.configMongoose = _configMongoose;
 
 }(require('mongoose'),
-  require('../../../models/User'),
-  require('../../../models/Post')));
+  require('../../../server/models/User'),
+  require('../../../server/models/Post')));

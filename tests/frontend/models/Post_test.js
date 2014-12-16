@@ -5,7 +5,7 @@ describe('Post', function()
     var _Post;
     var _postInstance;
 
-    beforeEach(module('lulz'));
+    beforeEach(module('post'));
 
     beforeEach(inject(function($injector)
     {

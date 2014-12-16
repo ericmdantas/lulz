@@ -1,6 +1,6 @@
 "use strict";
 
-var _validator = require('../../../services/ValidatorService');
+var _validator = require('../../../server/services/ValidatorService');
 var expect = require('chai').expect;
 var helper = require('../helper/helper');
 

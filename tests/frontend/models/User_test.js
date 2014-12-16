@@ -5,7 +5,7 @@ describe('User', function()
     var _User;
     var _userInstance;
 
-    beforeEach(module('lulz'));
+    beforeEach(module('user'));
 
     beforeEach(inject(function($injector)
     {

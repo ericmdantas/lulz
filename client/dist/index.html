@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="lulz" ng-controller="RootController as rootCtrl">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+        <link rel="shortcut icon" type="image/ico" href="img/smile.png"/>
+        <title>lulz!</title>
+
+        <link rel="stylesheet" href="css/estilo.min.css?hash=1418691896222">
+
+    </head>
+    <body>
+        <header class="transition center-container hand container" emd-change-location-to="/">
+            <div class="col-sm-2">
+                <img src="img/lulz.png" id="logo" class="transition"/>
+            </div>
+
+            <span class="col-sm-10 lulz-written visible-desktop">for the lulz!</span>
+        </header>
+
+        <emd-options></emd-options>
+
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
+
+        <to-the-top></to-the-top>
+
+        <!-- frameworks -->
+        <script src="js/frameworks.min.js?hash=1418691896222"></script>
+
+        <!-- app -->
+        <script src="js/lulz.min.js?hash=1418691896222"></script>
+
+    </body>
+</html>

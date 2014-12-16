@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html ng-app="lulz" ng-controller="RootController as rootCtrl">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+        <link rel="shortcut icon" type="image/ico" href="img/smile.png"/>
+        <title>lulz!</title>
+
+        <!-- build:css css/estilo.min.css?hash=@@hash -->
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/positioning.css" />
+        <link rel="stylesheet" type="text/css" href="css/media_queries.css" />
+        <link rel="stylesheet" type="text/css" href="css/events.css" />
+        <!-- endbuild -->
+
+    </head>
+    <body>
+        <header class="transition center-container hand container" emd-change-location-to="/">
+            <div class="col-sm-2">
+                <img src="img/lulz.png" id="logo" class="transition"/>
+            </div>
+
+            <span class="col-sm-10 lulz-written visible-desktop">for the lulz!</span>
+        </header>
+
+        <emd-options></emd-options>
+
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
+
+        <to-the-top></to-the-top>
+
+        <!-- frameworks -->
+        <!-- build:js js/frameworks.min.js?hash=@@hash -->
+        <script type="text/javascript" src="js/frameworks/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/angular.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/angular-resource.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/angular-route.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/angular-touch.min.js"></script>
+        <script type="text/javascript" src="js/frameworks/socket.io.js"></script>
+        <script type="text/javascript" src="bower_components/angular-socket-io/socket.min.js"></script>
+        <!-- endbuild -->
+
+        <!-- app -->
+        <!-- build:js js/lulz.min.js?hash=@@hash -->
+        <script type="text/javascript" src="js/application/lulz.js"></script>
+
+        <!-- home -->
+        <script type="text/javascript" src="js/application/home/controllers/HomeController.js"></script>
+
+        <!-- root -->
+        <script type="text/javascript" src="js/application/root/controllers/RootController.js"></script>
+
+        <!-- user -->
+        <script type="text/javascript" src="js/application/user/user.js"></script>
+        <script type="text/javascript" src="js/application/user/model/User.js"></script>
+        <script type="text/javascript" src="js/application/user/controllers/UserController.js"></script>
+        <script type="text/javascript" src="js/application/user/services/UserService.js"></script>
+        <script type="text/javascript" src="js/application/user/services/UserResource.js"></script>
+
+        <!-- post -->
+        <script type="text/javascript" src="js/application/post/post.js"></script>
+        <script type="text/javascript" src="js/application/post/model/Post.js"></script>
+        <script type="text/javascript" src="js/application/post/controllers/PostController.js"></script>
+        <script type="text/javascript" src="js/application/post/services/PostResource.js"></script>
+        <script type="text/javascript" src="js/application/post/services/PostService.js"></script>
+
+        <!-- commons -->
+        <script type="text/javascript" src="js/application/common/interceptors/MainInterceptor.js"></script>
+        <script type="text/javascript" src="js/application/common/configuration/routes.js"></script>
+        <script type="text/javascript" src="js/application/common/directives/emd-options-directive.js"></script>
+        <script type="text/javascript" src="js/application/common/directives/emd-change-location-directive.js"></script>
+        <script type="text/javascript" src="js/application/common/directives/emd-to-the-top-directive.js"></script>
+        <script type="text/javascript" src="js/application/common/services/StorageService.js"></script>
+        <script type="text/javascript" src="js/application/common/services/SocketService.js"></script>
+        <!-- endbuild -->
+
+    </body>
+</html>

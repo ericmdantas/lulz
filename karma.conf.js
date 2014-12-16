@@ -1,11 +1,12 @@
 // Karma configuration
 // Generated on Fri Sep 26 2014 20:44:54 GMT-0300 (Hora oficial do Brasil)
 
-module.exports = function(config) {
+module.exports = function(config)
+{
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: 'client/dev',
 
 
     // frameworks to use
@@ -16,39 +17,54 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files:
     [
-      'public/js/frameworks/jquery*.js',
-      'public/js/frameworks/angular.min.js',
-      'public/js/frameworks/*.js',
+      'bower_components/jquery/dist/jquery.min.js',
+      'bower_components/angular/angular.min.js',
+      'bower_components/**/*.min.js',
 
-      'public/js/application/lulz.js',
-      'public/js/application/**/*.js',
+      'js/application/lulz.js',
+      'js/application/user/user.js',
+      'js/application/post/post.js',
+      'js/application/**/*.js',
 
-      'tests/frontend/mocks/angular-mocks.js',
+      '../../tests/frontend/mocks/angular-mocks.js',
+      '../../tests/frontend/mocks/socket-io-mock.js',
 
-      'tests/frontend/helper/helper.js',
+      '../../tests/frontend/helper/helper.js',
 
-      'tests/frontend/**/*_test.js'
+      '../../tests/frontend/**/*_test.js',
+
+      'partials/includes/*.html'
     ],
 
 
     // list of files to exclude
-    exclude: [
-    ],
+    exclude: [],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors:
     {
-        'public/js/application/**/*.js' : ['coverage']
+        'js/application/**/*.js' : ['coverage'],
+        'partials/includes/*.html': ['ng-html2js']
+    },
+
+    coverageReporter:
+    {
+      type : 'html',
+      dir : '../../unit_coverage'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['dot', 'coverage'],
 
+    ngHtml2JsPreprocessor:
+    {
+      moduleName: 'my.includes'
+    },
 
     // web server port
     port: 9876,

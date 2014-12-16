@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 var helper = require('../helper/helper');
-var _Post = require('../../../models/Post');
+var _Post = require('../../../server/models/Post');
 
 describe('Post', function()
 {

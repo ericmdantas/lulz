@@ -79,12 +79,14 @@ describe('PostService', function()
 
             var _onSuccess = function(post)
             {
-                expect(post).toEqual(_response);
+                expect(angular.equals(post, _response)).toBeTruthy();
             }
 
             _PostService
                 .getById(_id)
                 .then(_onSuccess);
+
+            _httpMock.flush();
         })
     })
 

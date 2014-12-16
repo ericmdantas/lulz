@@ -5,6 +5,7 @@ describe('emd-options-directive', function()
     var _scope, _element, _compile;
 
     beforeEach(module('lulz'));
+    beforeEach(module('my.includes'));
 
     beforeEach(inject(function($injector)
     {

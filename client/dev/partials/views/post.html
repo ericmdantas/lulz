@@ -1,0 +1,49 @@
+<div class="main-container transition center-container">
+    <div class="card">
+
+        <h1 class="title">post creation</h1>
+
+        <form name="PostForm"
+              ng-submit="postCtrl.createPost(postCtrl.post)"
+              class="form-group">
+            <div>
+                <label>title</label>
+                <input type="text"
+                       maxlength="100"
+                       ng-maxlength="100"
+                       ng-minlength="1"
+                       required
+                       ng-model="postCtrl.post.title"
+                       class="no-outline form-control input-lg"
+                       autofocus/>
+
+                <label class="top-space">image url</label>
+                <input type="text"
+                       maxlength="100"
+                       ng-maxlength="100"
+                       ng-minlength="1"
+                       required
+                       ng-model="postCtrl.post.imageUrl"
+                       class="no-outline form-control input-lg" />
+            </div>
+
+            <div class="pull-right top-space">
+                <button type="button"
+                        class="btn btn-info btn-lg no-outline hand"
+                        ng-show="postCtrl.post.isNew()"
+                        ng-click="postCtrl.createPost(postCtrl.post)"
+                        ng-disabled="PostForm.$invalid || postCtrl.post.isInvalid()">create post</button>
+
+                <button type="button"
+                        class="btn btn-info btn-lg no-outline hand"
+                        ng-hide="postCtrl.post.isNew()"
+                        ng-disabled="PostForm.$invalid || postCtrl.post.isInvalid()">save changes</button>
+
+                <button type="button"
+                        class="btn btn-link btn-lg no-outline hand"
+                        emd-change-location-to="/">back</button>
+            </div>
+        </form>
+
+    </div>
+</div>
