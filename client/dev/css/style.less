@@ -1,0 +1,32 @@
+@import "variables.less";
+
+#logo {border-radius: @make-it-round; border: @logo-border;}
+#to-the-top {color: white; background-color: black; border-radius: @make-it-round; font-weight: bold; opacity: @low-opacity;}
+
+.smile {background-color: @base-color; color: @default-options-font-color;}
+.lulz-written {.title-font();}
+.important {color: orangered;}
+.card .icon-rounded {.rounded-icon();}
+.options a {color: @default-options-font-color;}
+.card img {border-radius: @default-border-radius;}
+.card .post-info {color: #AAA;}
+.card {.card();}
+.filter-container .search {color: @default-font-color; font-size: @big-font-size;}
+.options li {background-color: @base-color; border-bottom: @default-border-bottom-options; color: @default-options-font-color; font-weight: bold; opacity: @low-opacity;}
+.title {font-size: @bigger-font-size; text-transform: uppercase; color: @base-color; font-weight: normal;}
+.visible-mobile {display: block;}
+.visible-desktop {display: none;}
+
+.transition
+{
+    -webkit-transition: @default-transition;
+    -moz-transition: @default-transition;
+    -ms-transition: @default-transition;
+    -o-transition: @default-transition;
+    transition: @default-transition;
+}
+
+body {background: @body-background; font-family: @default-font;}
+input.ng-dirty.ng-invalid {border-color: @error-border;}
+ul {.no-style-ul();}
+form label {font-size: @big-font-size;}

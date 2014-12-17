@@ -5,16 +5,17 @@
 
         <h1 class="title">User</h1>
 
-        <form name="userForm" ng-submit="userCtrl.save(userCtrl.user)">
+        <form name="UserForm"
+              ng-submit="userCtrl.save(userCtrl.user)">
             <div>
-                <label class="block">username</label>
+                <label>username</label>
                 <input type="text"
                        maxlength="33"
                        ng-maxlength="33"
                        ng-minlength="3"
                        required
                        ng-model="userCtrl.user.username"
-                       class="no-outline"
+                       class="form-control no-outline input-lg"
                        ng-blur="userCtrl.lookForUser(username)"
                        autofocus/>
 
@@ -25,22 +26,18 @@
                        ng-minlength="3"
                        required
                        ng-model="userCtrl.user.password"
-                       class="no-outline" />
+                       class="form-control no-outline input-lg" />
             </div>
 
-            <div class="right">
-                <!--<button type="button"
-                        class="submit-button no-outline hand"
-                        ng-disabled="userForm.$invalid || userCtrl.user.isInvalid()"
-                        ng-click="userCtrl.save(userCtrl.user)">sign up</button>-->
+            <div class="pull-right top-space">
 
                 <button type="button"
-                        class="submit-button no-outline hand"
-                        ng-disabled="userForm.$invalid || userCtrl.user.isInvalid()"
+                        class="btn btn-lg btn-info"
+                        ng-disabled="UserForm.$invalid || userCtrl.user.isInvalid()"
                         ng-click="userCtrl.login(userCtrl.user)">login</button>
 
                 <button type="button"
-                        class="cancel-button no-outline hand"
+                        class="btn btn-lg btn-link"
                         emd-change-location-to="/">back</button>
             </div>
         </form>

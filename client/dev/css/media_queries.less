@@ -1,0 +1,32 @@
+@import "variables.less";
+
+@media (min-width: 40em)
+{
+    .card form {padding: 1em 2em;}
+}
+
+@media (min-width: 50em)
+{
+    #logo {width: @logo-size-desktop; border: 10px solid orange; margin-top: 2em;}
+
+    .card img {width: auto;}
+    .title {font-size: 3em;}
+    .filter {width: 60%; float: right;}
+    .visible-mobile {display: none;}
+    .visible-desktop {display: block;}
+    .options {position: fixed; top: @hidden-top-options; left: @left-position-options;}
+    .options li {width: 3em;}
+    .smile {font-size: @gigantic-icon-desktop;}
+    .card .post-content {padding-left: .5em; padding-right: .5em; padding-bottom: 10em;}
+}
+
+@media (min-width: 70em)
+{
+    .main-container, header {margin-top: @double-margin-top;}
+    .title {font-size: @bigger-font-size;}
+}
+
+@media (min-width: 85em)
+{
+    .title {font-size: @bigger-font-size;}
+}

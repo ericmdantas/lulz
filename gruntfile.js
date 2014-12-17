@@ -64,13 +64,13 @@ module.exports = function(grunt)
                 {
                     files:
                     {
-                        'client/temp/css/estilo.min.css': [_tempDir + 'css/font-awesome.min.css',
-                                                           _tempDir + '/bower_components/bootstrap/dist/css/bootstrap.min.css',
+                        'client/temp/css/estilo.min.css': [_tempDir + 'bower_components/fontawesome/css/font-awesome.min.css',
+                                                           _tempDir + 'bower_components/bootstrap/dist/css/bootstrap.min.css',
                                                            _tempDir + 'css/fonts.css',
                                                            _tempDir + 'css/style.css',
                                                            _tempDir + 'css/positioning.css',
                                                            _tempDir + 'css/media_queries.css',
-                                                           _tempDir + '/css/events.css']
+                                                           _tempDir + 'css/events.css']
                     }
                 }
             },
@@ -128,7 +128,10 @@ module.exports = function(grunt)
                 {
                     files:
                     {
-                        "client/dev/css/teste.css": "client/dev/css/teste.less"
+                        "client/temp/css/style.css":         "client/dev/css/style.less",
+                        "client/temp/css/positioning.css":   "client/dev/css/positioning.less",
+                        "client/temp/css/media_queries.css": "client/dev/css/media_queries.less",
+                        "client/temp/css/events.css":        "client/dev/css/events.less"
                     }
                 }
             }
@@ -139,5 +142,7 @@ module.exports = function(grunt)
     _loadGruntPlugins();
 
     // register
-    grunt.registerTask('build', ['karma:unit', 'clean:temp', 'clean:dist', 'copy:temp', 'cssmin:build', 'uglify', 'usemin', 'replace', 'less', 'copy:dist', 'clean:temp']);
+    grunt.registerTask('build', ['clean:temp', 'clean:dist', 'less', 'copy:temp', 'less', 'cssmin:build', 'uglify', 'usemin', 'replace', 'copy:dist', 'clean:temp']);
+    grunt.registerTask('test', ['karma:unit']);
+    grunt.registerTask('dist', ['karma:unit', 'clean:temp', 'clean:dist', 'less', 'copy:temp', 'less', 'cssmin:build', 'uglify', 'usemin', 'replace', 'copy:dist', 'clean:temp']);
 }
