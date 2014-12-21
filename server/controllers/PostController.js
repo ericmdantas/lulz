@@ -25,7 +25,7 @@
                 .send(ex);
         }
 
-        new Post()
+        Post
             .getAll()
             .then(_onSuccess, _onError)
             .catch(_onException)
@@ -55,7 +55,7 @@
                 .send(ex);
         }
 
-        new Post()
+        Post
             .getById(req.params.id)
             .then(_onSuccess, _onError)
             .catch(_onException)
@@ -88,7 +88,7 @@
         var _post = req.body;
         _post.author = (req.cookies && req.cookies.token) ? req.cookies.token : null;
 
-        new Post()
+        Post
             .createPost(_post)
             .then(_onSuccess, _onError)
             .catch(_onException)
@@ -102,7 +102,7 @@
             io.emit('post:smiledAt', post);
         }
 
-        new Post()
+        Post
             .likePost(id)
             .then(_onSuccess);
     }

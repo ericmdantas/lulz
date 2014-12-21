@@ -30,7 +30,7 @@
         var _user = {username: req.query.username,
                      password: req.query.password};
 
-        new User()
+        User
             .lookForUser(_user)
             .then(_onSuccess, _onError)
             .catch(_onException)
@@ -60,7 +60,7 @@
                 .send(ex);
         }
 
-        new User()
+        User
             .createUser(req.body)
             .then(_onSuccess, _onError)
             .catch(_onException)

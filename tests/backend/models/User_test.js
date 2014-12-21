@@ -15,6 +15,59 @@ describe('User', function()
         _userInstance = new _User();
     })
 
+    describe('getAllTrophyInformation', function()
+    {
+        beforeEach(function(done)
+        {
+            var _users = [];
+
+            for (var i = 0; i < 150; i++)
+            {
+                if (i < 10)
+                    _users.push({_id: '507f191e810c19729de860e' + i, username: 'aaa'+i, password: 'b'+i, type: "1", smiles: i});
+                else
+                    if (i < 100)
+                        _users.push({_id: '507f191e810c19729de860' + i, username: 'aaa'+i, password: 'b'+i, type: "1", smiles: i});
+                    else
+                        _users.push({_id: '507f191e810c19729de86' + i, username: 'aaa'+i, password: 'b'+i, type: "1", smiles: i});
+            }
+
+            helper
+                .createUser(_users)
+                .then(function()
+                {
+                    done();
+                });
+        })
+
+        afterEach(function(done)
+        {
+            _User.remove(done);
+        })
+
+        it('should return the top 100 users', function(done)
+        {
+            var _onSuccess = function(users)
+            {
+                expect(users).to.be.defined;
+                expect(users[0]).to.be.defined;
+                expect(users[0].smiles).to.equal(149);
+                expect(users[users.length - 1].smiles).to.equal(50);
+
+                done();
+            }
+
+            var _onError = function(error)
+            {
+                done();
+            }
+
+            _User
+                .getAllTrophyInformation()
+                .then(_onSuccess, _onError);
+        })
+    })
+
     describe('lookForUser', function()
     {
         beforeEach(function(done)
@@ -45,7 +98,7 @@ describe('User', function()
 
             for (var i = 0; i < _invalidUsers.length; i++)
             {
-                _userInstance
+                _User
                     .lookForUser(_invalidUsers[i])
                     .then(null, _onError);
             }
@@ -70,7 +123,7 @@ describe('User', function()
             {
                 _user.username = _invalidUsernames[i];
 
-                _userInstance
+                _User
                     .lookForUser(_user)
                     .then(null, _onError);
             }
@@ -95,7 +148,7 @@ describe('User', function()
             {
                 _user.password = _invalidPasswords[i];
 
-                _userInstance
+                _User
                     .lookForUser(_user)
                     .then(null, _onError);
             }
@@ -120,7 +173,7 @@ describe('User', function()
                 done();
             }
 
-            _userInstance
+            _User
                 .lookForUser(_user)
                 .then(_onSuccess);
         })
@@ -156,7 +209,7 @@ describe('User', function()
 
             for (var i = 0; i < _invalidIds.length; i++)
             {
-                _userInstance
+                _User
                     .getById(_invalidIds[i])
                     .then(null, _onError);
             }
@@ -178,7 +231,7 @@ describe('User', function()
                 done();
             }
 
-            _userInstance
+            _User
                 .getById(_id)
                 .then(_onSuccess);
         })
@@ -201,7 +254,7 @@ describe('User', function()
             _User.remove(done);
         })
 
-        it('should not create user - username missing', function()
+        it('should not create user - username missing', function(done)
         {
             var _user = {username: null, password: 'a123', type: 'admin'};
 
@@ -213,16 +266,15 @@ describe('User', function()
             var _onError = function(error)
             {
                 expect(error).to.an.instanceof(Error);
-                expect(error.errors.username.message).to.match(/username .+ required/);
                 done();
             }
 
-            new _User()
+            _User
                 .createUser(_user)
                 .then(_onSuccess, _onError);
         })
 
-        it('should not create user - password missing', function()
+        it('should not create user - password missing', function(done)
         {
             var _user = {username: 'eric', password: null, type: 'admin'};
 
@@ -234,16 +286,15 @@ describe('User', function()
             var _onError = function(error)
             {
                 expect(error).to.an.instanceof(Error);
-                expect(error.errors.username.message).to.match(/password .+ required/);
                 done();
             }
 
-            new _User()
+            _User
                 .createUser(_user)
                 .then(_onSuccess, _onError);
         })
 
-        it('should not create user - type missing', function()
+        it('should not create user - type missing', function(done)
         {
             var _user = {username: 'eric', password: null, type: 1};
 
@@ -255,16 +306,15 @@ describe('User', function()
             var _onError = function(error)
             {
                 expect(error).to.an.instanceof(Error);
-                expect(error.errors.username.message).to.match(/type .+ required/);
                 done();
             }
 
-            new _User()
+            _User
                 .createUser(_user)
                 .then(_onSuccess, _onError);
         })
 
-        it('should not create user - type is not acceptable', function()
+        it('should not create user - type is not acceptable', function(done)
         {
             var _user = {username: 'eric', password: 'a123', type: "3"};
 
@@ -276,16 +326,15 @@ describe('User', function()
             var _onError = function(error)
             {
                 expect(error).to.an.instanceof(Error);
-                expect(error.errors.username.message).to.match(/type .+ enum/);
                 done();
             }
 
-            new _User()
+            _User
                 .createUser(_user)
                 .then(_onSuccess, _onError);
         })
 
-        it('should create user correctly', function()
+        it('should create user correctly', function(done)
         {
             var _user = {username: 'eric', password: 'a123', type: '1'};
 
@@ -303,7 +352,7 @@ describe('User', function()
                 expect(false).to.be.true;
             }
 
-            new _User()
+            _User
                 .createUser(_user)
                 .then(_onSuccess, _onError);
         })

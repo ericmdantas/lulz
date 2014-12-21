@@ -9,8 +9,7 @@
         description: {type: String, trim: true, lowercase: true},
         smiles: {type: Number, default: 0},
         createdAt: {type: Date, default: Date.now},
-        author: {type: mongoose.Schema.Types.ObjectId, required: true, trim: true, index: true},
-        comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
+        author: {type: mongoose.Schema.Types.ObjectId, required: true, trim: true, index: true}
     });
 
     exports.PostSchema = _postSchema;

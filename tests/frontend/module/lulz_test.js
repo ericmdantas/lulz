@@ -29,7 +29,17 @@ describe('lulz', function()
             {
                 expect(typeof _OPTIONS[i]).toBe('object');
                 expect(typeof _OPTIONS[i].icon).toBe('string');
-                expect(typeof _OPTIONS[i].location).toBe('string');
+
+                if (_OPTIONS[i].location)
+                    expect(typeof _OPTIONS[i].location).toBe('string');
+
+                if (_OPTIONS[i].modal)
+                {
+                    expect(typeof _OPTIONS[i].modal).toBe('object');
+                    expect(typeof _OPTIONS[i].modal.id).toBe('string');
+                    expect(/^#/.test(_OPTIONS[i].modal.id)).toBeTruthy();
+                }
+
             }
         })
     })

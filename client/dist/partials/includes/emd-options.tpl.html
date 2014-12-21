@@ -2,7 +2,16 @@
     <ul>
         <li ng-repeat="opt in options"
             class="hand"
-            emd-change-location-to={{opt.location}}>
+            emd-change-location-to={{opt.location}}
+            ng-if="opt.location">
+            <i class="fa fa-{{opt.icon}}"></i>
+        </li>
+
+        <li ng-repeat="opt in options"
+            class="hand"
+            data-toggle="modal"
+            data-target="{{opt.modal.id}}"
+            ng-if="opt.modal">
             <i class="fa fa-{{opt.icon}}"></i>
         </li>
 

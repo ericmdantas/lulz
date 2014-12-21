@@ -40,7 +40,7 @@ describe('Post', function()
                 done();
             }
 
-            _postInstance
+            _Post
                 .getAll()
                 .then(_onSuccess);
         })
@@ -76,7 +76,7 @@ describe('Post', function()
 
             for (var i = 0; i < _invalidIds.length; i++)
             {
-                _postInstance
+                _Post
                     .getById(_invalidIds[i])
                     .then(null, _onError);
             }
@@ -100,7 +100,7 @@ describe('Post', function()
                 done();
             }
 
-            _postInstance
+            _Post
                 .getById(_id)
                 .then(_onSuccess);
         })
@@ -123,7 +123,7 @@ describe('Post', function()
             _Post.remove(done);
         })
 
-        it('should not create post - title missing', function()
+        it('should not create post - title missing', function(done)
         {
             var _post = {title: null, imageUrl: 'b0.jpg', description: "aehO0", author: '507f191e810c19729de860ea'};
 
@@ -135,16 +135,15 @@ describe('Post', function()
             var _onError = function(error)
             {
                 expect(error).to.an.instanceof(Error);
-                expect(error.errors.postname.message).to.match(/title .+ required/);
                 done();
             }
 
-            new _Post()
+            _Post
                 .createPost(_post)
                 .then(_onSuccess, _onError);
         })
 
-        it('should not create post - imageUrl missing', function()
+        it('should not create post - imageUrl missing', function(done)
         {
             var _post = {title: 'titulo', imageUrl: null, description: "aehO0", author: '507f191e810c19729de860ea'};
 
@@ -156,16 +155,15 @@ describe('Post', function()
             var _onError = function(error)
             {
                 expect(error).to.an.instanceof(Error);
-                expect(error.errors.postname.message).to.match(/imageUrl .+ required/);
                 done();
             }
 
-            new _Post()
+            _Post
                 .createPost(_post)
                 .then(_onSuccess, _onError);
         })
 
-        it('should not create post - author missing', function()
+        it('should not create post - author missing', function(done)
         {
             var _post = {title: 'a', imageUrl: 'b0.jpg', description: "aehO0", author: null};
 
@@ -177,16 +175,15 @@ describe('Post', function()
             var _onError = function(error)
             {
                 expect(error).to.an.instanceof(Error);
-                expect(error.errors.postname.message).to.match(/author .+ required/);
                 done();
             }
 
-            new _Post()
+            _Post
                 .createPost(_post)
                 .then(_onSuccess, _onError);
         })
 
-        it('should create post correctly', function()
+        it('should create post correctly', function(done)
         {
             var _post = {title: 'titulo', imageUrl: 'b0.jpg', description: "aehO0", author: '507f191e810c19729de860ea'};
 
@@ -202,7 +199,7 @@ describe('Post', function()
                 expect(false).to.be.true;
             }
 
-            new _Post()
+            _Post
                 .createPost(_post)
                 .then(_onSuccess, _onError);
         })
@@ -238,7 +235,7 @@ describe('Post', function()
 
             for (var i = 0; i < _ids.length; i++)
             {
-                _postInstance
+                _Post
                     .likePost(_ids[i])
                     .then(null, _onError);
             }
@@ -263,7 +260,7 @@ describe('Post', function()
                 done();
             }
 
-            _postInstance
+            _Post
                 .likePost(_id)
                 .then(_onSuccess);
         })

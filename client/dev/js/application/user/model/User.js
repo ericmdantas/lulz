@@ -12,7 +12,6 @@ angular
             type: '1',
             smiles: 0,
             posts: [],
-            comments: [],
             language: 'EN'
         }
 

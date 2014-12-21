@@ -113,8 +113,8 @@ describe('PostService', function()
 
         it('should create the post, but the server returns error', function()
         {
-            _httpMock.expectPOST(POST_URL, {title: 'a', imageUrl: 'b', language: 'EN'}).respond(500, {error: 123});
-            var _post = new _Post({title: 'a', imageUrl: 'b', language: 'EN'});
+            _httpMock.expectPOST(POST_URL, {title: 'a', imageUrl: 'b.gif', language: 'EN'}).respond(500, {error: 123});
+            var _post = new _Post({title: 'a', imageUrl: 'b.gif', language: 'EN'});
 
             var _onError = function(error)
             {
@@ -130,8 +130,8 @@ describe('PostService', function()
 
         it('should create the post successfully', function()
         {
-            _httpMock.expectPOST(POST_URL, {title: 'a', imageUrl: 'b', language: 'EN'}).respond(200);
-            var _post = new _Post({title: 'a', imageUrl: 'b', language: 'EN'});
+            _httpMock.expectPOST(POST_URL, {title: 'a', imageUrl: 'b.jpg', language: 'EN'}).respond(200);
+            var _post = new _Post({title: 'a', imageUrl: 'b.jpg', language: 'EN'});
 
             var _onSuccess = function()
             {

@@ -2,7 +2,30 @@
 
 (function(mongoose, Promise, userSchema, validator)
 {
-    userSchema.methods.lookForUser = function(user)
+    userSchema.statics.getAllTrophyInformation = function()
+    {
+        var MAX_TROPHY_RESULTS = 100;
+
+        var deferred = Promise.pending();
+
+        var _query = {};
+        var _projection = {};
+
+        User
+            .find(_query, _projection)
+            .sort('-smiles')
+            .limit(100)
+            .exec(function(err, users)
+            {
+                err ? deferred.reject(err)
+                    : deferred.resolve(users);
+            })
+
+        return deferred.promise;
+
+    }
+
+    userSchema.statics.lookForUser = function(user)
     {
         var deferred = Promise.pending();
 
@@ -39,7 +62,7 @@
         return deferred.promise;
     }
 
-    userSchema.methods.getById = function(id)
+    userSchema.statics.getById = function(id)
     {
         var deferred = Promise.pending();
 
@@ -61,7 +84,7 @@
         return deferred.promise;
     }
 
-    userSchema.methods.createUser = function(user)
+    userSchema.statics.createUser = function(user)
     {
         var deferred = Promise.pending();
 

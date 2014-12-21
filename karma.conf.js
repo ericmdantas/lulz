@@ -24,6 +24,7 @@ module.exports = function(config)
       'js/application/lulz.js',
       'js/application/user/user.js',
       'js/application/post/post.js',
+      'js/application/trophies/trophies.js',
       'js/application/**/*.js',
 
       '../../tests/frontend/mocks/angular-mocks.js',

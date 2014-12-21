@@ -16,13 +16,17 @@
 
     </head>
     <body>
-        <header class="transition center-container hand container" emd-change-location-to="/">
+        <header class="transition center-container hand container"
+                emd-change-location-to="/">
+
             <div class="col-sm-2">
                 <img src="img/lulz.png" id="logo" class="transition"/>
             </div>
 
             <span class="col-sm-10 lulz-written visible-desktop">for the lulz!</span>
         </header>
+
+        <div ng-include="'partials/includes/post-modal.tpl.html'"></div>
 
         <emd-options></emd-options>
 
@@ -66,6 +70,11 @@
         <script type="text/javascript" src="js/application/post/controllers/PostController.js"></script>
         <script type="text/javascript" src="js/application/post/services/PostResource.js"></script>
         <script type="text/javascript" src="js/application/post/services/PostService.js"></script>
+
+        <!-- trophies -->
+        <script type="text/javascript" src="js/application/trophies/trophies.js"></script>
+        <script type="text/javascript" src="js/application/trophies/controllers/TrophiesController.js"></script>
+        <script type="text/javascript" src="js/application/trophies/services/TrophiesService.js"></script>
 
         <!-- commons -->
         <script type="text/javascript" src="js/application/common/interceptors/MainInterceptor.js"></script>

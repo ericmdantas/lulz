@@ -90,6 +90,7 @@ module.exports = function(grunt)
                         'client/temp/js/lulz.min.js': [_tempDir + 'js/application/lulz.js',
                                                        _tempDir + 'js/application/user/user.js',
                                                        _tempDir + 'js/application/post/post.js',
+                                                       _tempDir + 'js/application/trophies/trophies.js',
                                                        _tempDir + 'js/application/**/*.js']
                     }
                 }

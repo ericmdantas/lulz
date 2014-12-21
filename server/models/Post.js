@@ -2,7 +2,7 @@
 
 (function(mongoose, Promise, postSchema, validator)
 {
-    postSchema.methods.getAll = function()
+    postSchema.statics.getAll = function()
     {
         var deferred = Promise.pending();
         var _query = {};
@@ -18,7 +18,7 @@
         return deferred.promise;
     }
 
-    postSchema.methods.getById = function(id)
+    postSchema.statics.getById = function(id)
     {
         var deferred = Promise.pending();
 
@@ -39,7 +39,7 @@
         return deferred.promise;
     }
 
-    postSchema.methods.createPost = function(post)
+    postSchema.statics.createPost = function(post)
     {
         var deferred = Promise.pending();
 
@@ -55,7 +55,7 @@
         return deferred.promise;
     }
 
-    postSchema.methods.likePost = function(id)
+    postSchema.statics.likePost = function(id)
     {
         var deferred = Promise.pending();
 

@@ -1,11 +1,11 @@
 @import "variables.less";
 
-@media (min-width: 40em)
+@media (min-width: @tablet-size)
 {
     .card form {padding: 1em 2em;}
 }
 
-@media (min-width: 50em)
+@media (min-width: @big-tablet-size)
 {
     #logo {width: @logo-size-desktop; border: 10px solid orange; margin-top: 2em;}
 
@@ -16,17 +16,17 @@
     .visible-desktop {display: block;}
     .options {position: fixed; top: @hidden-top-options; left: @left-position-options;}
     .options li {width: 3em;}
-    .smile {font-size: @gigantic-icon-desktop;}
+    .smile {font-size: @gigantic-icon-desktop; width: @corner-smile-card;}
     .card .post-content {padding-left: .5em; padding-right: .5em; padding-bottom: 10em;}
 }
 
-@media (min-width: 70em)
+@media (min-width: @desktop-size)
 {
     .main-container, header {margin-top: @double-margin-top;}
     .title {font-size: @bigger-font-size;}
 }
 
-@media (min-width: 85em)
+@media (min-width: @big-desktop-size)
 {
     .title {font-size: @bigger-font-size;}
 }

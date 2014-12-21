@@ -1,6 +1,6 @@
 "use strict";
 
-(function(Auth, contentController, userController, postController)
+(function(Auth, contentController, userController, postController, trophiesController)
 {
     var BASE_PROTECTED_API = '/api/protected/';
 
@@ -33,6 +33,13 @@
             .get(postController.getById);
 
 
+        // TROPHIES RELATED
+
+        router
+            .route('/api/trophies')
+            .get(trophiesController.getAll);
+
+
         // URL NOT FOUND
 
         router
@@ -47,4 +54,5 @@
 }(require('../services/Authentication'),
   require('../controllers/ContentController'),
   require('../controllers/UserController'),
-  require('../controllers/PostController')))
+  require('../controllers/PostController'),
+  require('../controllers/TrophiesController')))

@@ -1,11 +1,13 @@
-<div class="main-container transition center-container">
+<div class="main-container transition center-container"
+     ng-controller="PostController as postCtrl">
     <div class="card">
 
         <h1 class="title">post creation</h1>
 
         <form name="PostForm"
               ng-submit="postCtrl.createPost(postCtrl.post)"
-              class="form-group">
+              class="form-group"
+              novalidate>
             <div>
                 <label>title</label>
                 <input type="text"
@@ -22,6 +24,7 @@
                        maxlength="100"
                        ng-maxlength="100"
                        ng-minlength="1"
+                       name="imageUrl"
                        required
                        ng-model="postCtrl.post.imageUrl"
                        class="no-outline form-control input-lg" />
@@ -29,10 +32,10 @@
 
             <div class="pull-right top-space">
                 <button type="button"
-                        class="btn btn-info btn-lg no-outline hand"
+                        class="btn btn-warning btn-lg no-outline hand"
                         ng-show="postCtrl.post.isNew()"
                         ng-click="postCtrl.createPost(postCtrl.post)"
-                        ng-disabled="PostForm.$invalid || postCtrl.post.isInvalid()">create post</button>
+                        ng-disabled="PostForm.$invalid || postCtrl.post.isInvalid()">spread the lulz!</button>
 
                 <button type="button"
                         class="btn btn-info btn-lg no-outline hand"
@@ -41,7 +44,7 @@
 
                 <button type="button"
                         class="btn btn-link btn-lg no-outline hand"
-                        emd-change-location-to="/">back</button>
+                        data-dismiss="modal">close</button>
             </div>
         </form>
 

@@ -35,8 +35,10 @@ angular
 
             isInvalid: function()
             {
+                var _validExtensionsForImage = /\.(jpg|gif|png|jpeg|bmp|svg)$/i;
+
                 var _isTitleInvalid = !angular.isString(this.title);
-                var _isImageUrl = !angular.isString(this.imageUrl);
+                var _isImageUrl = !angular.isString(this.imageUrl) || !_validExtensionsForImage.test(this.imageUrl);
                 //var _isAuthorInvalid = validator.isStringInvalid(this.author);
                 var _isLanguage = !angular.isString(this.language);
 
