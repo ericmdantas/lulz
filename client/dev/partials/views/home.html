@@ -1,4 +1,4 @@
-﻿<div class="main-container transition center-container">
+﻿<div class="main-container transition center-container" id="home">
     <div class="filter-container">
         <i class="fa fa-search search"></i>
 
@@ -6,14 +6,14 @@
                class="filter no-outline form-control input-lg"
                placeholder="I wanna check out.."
                maxlength="44"
-               ng-model="search"
+               ng-model="search.title"
                autofocus/>
     </div>
 
     <div class="card transition"
-         ng-repeat="post in homeCtrl.posts | filter: search | orderBy: '-createdAt' track by $index">
+         ng-repeat="post in filteredPosts = (homeCtrl.posts | filter: search) | orderBy: '-createdAt' track by $index">
 
-        <h1 class="title hand">{{post.title}}</h1>
+        <span class="title">{{post.title}}</span>
 
         <div class="post-content">
 
@@ -30,4 +30,12 @@
             </div>
         </div>
     </div>
+
+    <div ng-hide="filteredPosts.length">
+        <div class="card transition">
+            <span class="title">Ooops! Nothing found for "{{search.title}}".</span>
+        </div>
+    </div>
+
+    <emd-moar-funnies class="hidden" load-more="homeCtrl.loadMore()"></emd-moar-funnies>
 </div>

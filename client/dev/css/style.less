@@ -3,6 +3,7 @@
 #logo {border-radius: @make-it-round; border: @logo-border;}
 #to-the-top {color: white; background-color: black; border-radius: @make-it-round; font-weight: bold; opacity: @low-opacity;}
 
+.plus-info {box-shadow: @plus-info-shadow;}
 .smile {background-color: @base-color; color: @default-options-font-color;}
 .lulz-written {.title-font();}
 .important {color: orangered;}
@@ -12,7 +13,8 @@
 .card .post-info {color: #AAA;}
 .card {.card();}
 .filter-container .search {color: @default-font-color; font-size: @big-font-size;}
-.options li {background-color: @base-color; border-bottom: @default-border-bottom-options; color: @default-options-font-color; font-weight: bold; opacity: @low-opacity;}
+.options li {background-color: @options-base-color; color: @default-options-font-color; font-weight: bold; border-radius: @make-it-round; margin-bottom: @options-margin-bottom;}
+.options li:not(.plus-info) {opacity: 0;}
 .title {font-size: @bigger-font-size; text-transform: uppercase; color: @base-color; font-weight: normal;}
 .visible-mobile {display: block;}
 .visible-desktop {display: none;}

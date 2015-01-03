@@ -40,8 +40,7 @@ module.exports = function(grunt)
                             {expand: true, cwd: _tempDir + 'img/', src: ['**'], dest: _distDir + 'img/'},
                             {expand: true, cwd: _tempDir + 'fonts/', src: ['**'], dest: _distDir + 'fonts/'},
                             {expand: true, cwd: _tempDir + 'partials/', src: ['**'], dest: _distDir + 'partials/'},
-                            {expand: true, cwd: _tempDir + 'js/', src: ['frameworks.min.js'], dest: _distDir + 'js/'},
-                            {expand: true, cwd: _tempDir + 'js/', src: ['lulz.min.js'], dest: _distDir + 'js/'},
+                            {expand: true, cwd: _tempDir + 'js/', src: ['*.min.js'], dest: _distDir + 'js/'},
                             {expand: true, cwd: _tempDir, src: ['index.html'], dest: _distDir}]
                 }
             },
@@ -81,10 +80,13 @@ module.exports = function(grunt)
                 {
                     files:
                     {
+                        'client/temp/js/socket.min.js': [_tempDir + 'js/socket/socket.io.js'],
+
                         'client/temp/js/frameworks.min.js': [_tempDir + 'bower_components/jquery/dist/jquery.min.js',
                                                              _tempDir + 'bower_components/angular/angular.min.js',
                                                              _tempDir + 'bower_components/angular-socket-io/socket.min.js',
-                                                             _tempDir + 'js/socket/socket.io.js',
+                                                             _tempDir + 'bower_components/angular-resource/angular-resource.min.js',
+                                                             _tempDir + 'bower_components/ng-xtorage/ng-xtorage.min.js',
                                                              _tempDir + 'bower_components/**/*.min.js'],
 
                         'client/temp/js/lulz.min.js': [_tempDir + 'js/application/lulz.js',

@@ -2,11 +2,11 @@
 
 angular
     .module('user')
-    .controller('UserController', ['UserService', 'User', 'StorageService', function(UserService, User, StorageService)
+    .controller('UserController', ['$xtorage', 'UserService', 'User', function($xtorage, UserService, User)
     {
         var self = this;
 
-        self.user = User.new(StorageService.get('U'));
+        self.user = User.new($xtorage.get('U'));
 
         self.save = function(user)
         {

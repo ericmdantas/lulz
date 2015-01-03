@@ -1,14 +1,14 @@
 "use strict";
 
-(function(User)
+(function(TrophiesService)
 {
     var _getAll = function(req, res)
     {
-        var _onSuccess = function(users)
+        var _onSuccess = function(trophies)
         {
             res
                 .status(200)
-                .send(users);
+                .send(trophies);
         }
 
         var _onError = function(error)
@@ -25,8 +25,8 @@
                 .send(ex);
         }
 
-        User
-            .getAllTrophyInformation()
+        TrophiesService
+            .getTrophies()
             .then(_onSuccess, _onError)
             .catch(_onException)
             .done();
@@ -34,4 +34,4 @@
 
     exports.getAll = _getAll;
 
-}(require('../models/User')))
+}(require('../services/TrophiesService')))

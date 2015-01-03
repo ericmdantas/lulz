@@ -9,7 +9,7 @@
         description: {type: String, trim: true, lowercase: true},
         smiles: {type: Number, default: 0},
         createdAt: {type: Date, default: Date.now},
-        author: {type: mongoose.Schema.Types.ObjectId, required: true, trim: true, index: true}
+        author: {type: mongoose.Schema.Types.ObjectId, required: true, trim: true, ref: 'User'}
     });
 
     exports.PostSchema = _postSchema;

@@ -3,26 +3,33 @@
 var Authentication = require('../../../server/services/Authentication');
 var User = require('../../../server/models/User');
 var helper = require('../helper/helper');
-var chai = require('chai');
-var expect = chai.expect;
-var spies = require('chai-spies');
+var expect = require('chai').expect;
 
 describe('Authentication', function()
 {
-    chai.use(spies);
-
     describe('authenticate', function()
     {
         it('should reject the user, not found in the base', function()
         {
-            var _resMocked = {cookie: function(){}};
-            var _token = '123';
+            var _called = false;
 
-            var _spy = chai.spy(_resMocked.cookie);
+            var _resMocked =
+            {
+                cookie: function()
+                {
+                    _called = true;
+
+                    expect(arguments[0]).to.equal('token');
+                    expect(arguments[1]).to.equal(_token);
+                    expect(arguments[2].httpOnly).to.be.true;
+                }
+            };
+
+            var _token = '123';
 
             Authentication.authenticate(_resMocked, _token);
 
-            expect(_spy).to.have.been.called();
+            expect(_called).to.be.true;
         })
     })
 

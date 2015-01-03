@@ -27,8 +27,10 @@
                 .send(ex);
         }
 
-        var _user = {username: req.query.username,
-                     password: req.query.password};
+        var _user = {};
+
+        _user.username = req.body.username;
+        _user.password = req.body.password;
 
         User
             .lookForUser(_user)

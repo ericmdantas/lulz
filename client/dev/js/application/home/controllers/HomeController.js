@@ -37,6 +37,10 @@ lulz.controller('HomeController', ['PostService', 'SocketService', function(Post
             SocketService.emit('post:smile', id);
     }
 
+    self.loadMore = function()
+    {
+        alert('eae :D');
+    }
 
     _getPosts();
     _listenSocket();

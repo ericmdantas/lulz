@@ -5,6 +5,7 @@ var lulz = angular
                              'ngTouch',
                              'ngRoute',
                              'btford.socket-io',
+                             'emd.ng-xtorage',
                              'user',
                              'post',
                              'trophies'])
@@ -14,6 +15,6 @@ var lulz = angular
             .constant('OPTIONS', [{icon: 'home', location: '/'},
                                   {icon: 'user', location: '/user'},
                                   {icon: 'pencil', modal: {id: "#post-modal"}},
-                                  {icon: 'trophy', location: "/trophies"},
-                                  {icon: 'globe', location: '/language'},
-                                  {icon: 'info', location: '/info'}]);
+                                  {icon: 'trophy', location: "/trophies"}]);
+                                  //{icon: 'globe', location: '/language'},
+                                  //{icon: 'info', location: '/info'}]);

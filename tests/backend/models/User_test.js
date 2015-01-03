@@ -3,69 +3,16 @@
 var expect = require('chai').expect;
 var helper = require('../helper/helper');
 var _User = require('../../../server/models/User');
+var _Post = require('../../../server/models/Post');
 
 describe('User', function()
 {
-    var _userInstance;
-
     before(helper.configMongoose);
 
-    beforeEach(function()
+    beforeEach(function(done)
     {
-        _userInstance = new _User();
-    })
-
-    describe('getAllTrophyInformation', function()
-    {
-        beforeEach(function(done)
-        {
-            var _users = [];
-
-            for (var i = 0; i < 150; i++)
-            {
-                if (i < 10)
-                    _users.push({_id: '507f191e810c19729de860e' + i, username: 'aaa'+i, password: 'b'+i, type: "1", smiles: i});
-                else
-                    if (i < 100)
-                        _users.push({_id: '507f191e810c19729de860' + i, username: 'aaa'+i, password: 'b'+i, type: "1", smiles: i});
-                    else
-                        _users.push({_id: '507f191e810c19729de86' + i, username: 'aaa'+i, password: 'b'+i, type: "1", smiles: i});
-            }
-
-            helper
-                .createUser(_users)
-                .then(function()
-                {
-                    done();
-                });
-        })
-
-        afterEach(function(done)
-        {
-            _User.remove(done);
-        })
-
-        it('should return the top 100 users', function(done)
-        {
-            var _onSuccess = function(users)
-            {
-                expect(users).to.be.defined;
-                expect(users[0]).to.be.defined;
-                expect(users[0].smiles).to.equal(149);
-                expect(users[users.length - 1].smiles).to.equal(50);
-
-                done();
-            }
-
-            var _onError = function(error)
-            {
-                done();
-            }
-
-            _User
-                .getAllTrophyInformation()
-                .then(_onSuccess, _onError);
-        })
+        _Post.remove();
+        _User.remove(done);
     })
 
     describe('lookForUser', function()
@@ -168,7 +115,7 @@ describe('User', function()
                 expect(user).to.have.property('_id');
                 expect(user).to.have.property('username').and.to.equal('ericmdantas');
                 expect(user).to.have.property('type').and.to.equal('9999');
-                expect(user).to.have.property('smiles').and.to.equal(0);
+                expect(user).not.to.have.property('smiles');
 
                 done();
             }

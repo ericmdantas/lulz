@@ -2,7 +2,7 @@
 
 angular
     .module('user')
-    .service('UserService', ['$q', 'UserResource', 'StorageService', function($q, UserResource, StorageService)
+    .service('UserService', ['$q', '$xtorage', 'UserResource', 'User', function($q, $xtorage, UserResource, User)
     {
         var _login = function(user)
         {
@@ -16,9 +16,13 @@ angular
 
             var _onSuccess = function(user)
             {
-                var _user = user || {};
+                console.log(user);
 
-                StorageService.save('U', _user);
+                var _user = new User(user);
+
+                console.log(_user);
+
+                $xtorage.save('U', _user);
 
                 deferred.resolve(_user);
             }
@@ -29,7 +33,7 @@ angular
             }
 
             UserResource
-                .get(user)
+                .login(user)
                 .$promise
                 .then(_onSuccess, _onError);
 
@@ -46,9 +50,9 @@ angular
                 return deferred.promise;
             }
 
-            var _onSuccess = function(data)
+            var _onSuccess = function(user)
             {
-                var _user = data || {};
+                var _user = new User(user);
 
                 deferred.resolve(_user);
             }

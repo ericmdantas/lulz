@@ -2,6 +2,29 @@
 
 (function(mongoose, Promise, userSchema, validator)
 {
+    userSchema.statics.getTrophiesInfo = function()
+    {
+        var deferred = Promise.pending();
+
+        var MAX_INFORMATION = 100;
+
+        var _query = {};
+        var _projection = {};
+
+        User
+            .find(_query, _projection)
+            .select('username createdAt posts')
+            .sort('-posts.smiles')
+            .limit(MAX_INFORMATION)
+            .exec(function(err, users)
+            {
+                err ? deferred.reject(err)
+                    : deferred.resolve(users);
+            });
+
+        return deferred.promise;
+    }
+
     userSchema.statics.getAllTrophyInformation = function()
     {
         var MAX_TROPHY_RESULTS = 100;
@@ -11,10 +34,14 @@
         var _query = {};
         var _projection = {};
 
+        var _returnThese = '_id username createdAt smiles';
+        var _sortBy = '-smiles';
+
         User
             .find(_query, _projection)
-            .sort('-smiles')
-            .limit(100)
+            .sort(_sortBy)
+            .select(_returnThese)
+            .limit(MAX_TROPHY_RESULTS)
             .exec(function(err, users)
             {
                 err ? deferred.reject(err)

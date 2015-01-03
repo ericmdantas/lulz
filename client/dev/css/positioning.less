@@ -1,11 +1,14 @@
 @import "variables.less";
 
+#home {margin-bottom: @default-margin-bottom;}
 #logo {width: @logo-size-mobile;}
 #username {margin-left: .5em; font-size: @big-font-size; vertical-align: super;}
 #user-info-container .default-margin-top {margin-left: 6.2em;}
 #to-the-top {position: fixed; bottom: .3em; right: .3em; padding: 0 .5em .2em; font-size: 3em;}
 #post-modal .modal-body {padding: 0;}
 
+.author {padding: 1em;}
+.moar-funnies {padding: @default-padding;}
 .modal .card {margin-bottom: 0;}
 .modal .main-container {margin-top: 0;}
 .overflow-hidden {overflow: hidden;}
@@ -14,9 +17,9 @@
 .default-margin-top {margin-top: @default-margin-top;}
 .big-margin-top {margin-top: @double-margin-top;}
 .submit-button, .cancel-button {padding: .6em 1.5em; margin: 2em 0 0;}
-.options {position: absolute; top: @hidden-top-options; left: @left-position-options; z-index: @z-index-options;}
 .options ul {margin: 0;}
-.options li {padding: .5em 0; width: 1.5em; text-align: center; font-size: @bigger-font-size;}
+.options {position: fixed; right: @right-position-options; bottom: @bottom-position-options; z-index: @z-index-options;}
+.options li {padding: .3em 0; width: 70px; text-align: center; font-size: @bigger-font-size;}
 .center-container {margin: @centered-by-margin;}
 .main-container, header {margin-top: 1em;}
 .card {margin-bottom: 5em; overflow: hidden; position: relative;}

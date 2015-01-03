@@ -28,7 +28,6 @@ describe('User', function()
             expect(_userInstance.type).toBe("1");
             expect(_userInstance.smiles).toBe(0);
             expect(_userInstance.posts.length).toEqual(0);
-            expect(_userInstance.comments.length).toEqual(0);
             expect(_userInstance.language).toBe('EN');
         })
     })

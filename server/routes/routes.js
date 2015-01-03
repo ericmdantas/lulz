@@ -16,8 +16,11 @@
         // USER RELATED
 
         router
+            .route(BASE_PROTECTED_API + 'user/login')
+            .post(userController.lookForUser)
+
+        router
             .route(BASE_PROTECTED_API + 'user')
-            .get(userController.lookForUser)
             .post(userController.createUser);
 
 

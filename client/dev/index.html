@@ -34,7 +34,9 @@
             <ng-view></ng-view>
         </div>
 
-        <to-the-top></to-the-top>
+        <!-- build:js js/socket.min.js?hash=@@hash -->
+        <script type="text/javascript" src="js/socket/socket.io.js"></script>
+        <!-- endbuild -->
 
         <!-- frameworks -->
         <!-- build:js js/frameworks.min.js?hash=@@hash -->
@@ -43,7 +45,7 @@
         <script type="text/javascript" src="js/frameworks/angular-resource.min.js"></script>
         <script type="text/javascript" src="js/frameworks/angular-route.min.js"></script>
         <script type="text/javascript" src="js/frameworks/angular-touch.min.js"></script>
-        <script type="text/javascript" src="js/frameworks/socket.io.js"></script>
+        <script type="text/javascript" src="js/socket/socket.io.js"></script>
         <script type="text/javascript" src="bower_components/angular-socket-io/socket.min.js"></script>
         <!-- endbuild -->
 

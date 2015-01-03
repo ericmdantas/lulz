@@ -1,6 +1,6 @@
 "use strict";
 
-(function(mongoose, Promise, postSchema, validator)
+(function(mongoose, Promise, lodash, postSchema, validator)
 {
     postSchema.statics.getAll = function()
     {
@@ -9,10 +9,11 @@
 
         Post
             .find(_query)
+            .populate('author', 'username')
             .exec(function(error, posts)
             {
                 error ? deferred.reject(error)
-                    : deferred.resolve(posts);
+                      : deferred.resolve(posts);
             })
 
         return deferred.promise;
@@ -85,5 +86,6 @@
 
 }(require('mongoose'),
   require('bluebird'),
+  require('lodash'),
   require('../schemas/PostSchema').PostSchema,
   require('../services/ValidatorService')))
