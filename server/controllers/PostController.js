@@ -64,11 +64,11 @@
 
     var _createPost = function(req, res)
     {
-        var _onSuccess = function()
+        var _onSuccess = function(post)
         {
             res
-                .status(200)
-                .end();
+                .status(201)
+                .json(post);
         }
 
         var _onError = function(error)

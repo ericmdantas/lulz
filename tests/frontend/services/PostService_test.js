@@ -130,12 +130,18 @@ describe('PostService', function()
 
         it('should create the post successfully', function()
         {
-            _httpMock.expectPOST(POST_URL, {title: 'a', imageUrl: 'b.jpg', language: 'EN'}).respond(200);
             var _post = new _Post({title: 'a', imageUrl: 'b.jpg', language: 'EN'});
+            _httpMock.expectPOST(POST_URL, {title: 'a', imageUrl: 'b.jpg', language: 'EN'}).respond(200, _post);
 
-            var _onSuccess = function()
+            var _onSuccess = function(post)
             {
-                expect(true).toBeTruthy();
+                expect(post).toBeDefined();
+
+                for (var x in _post)
+                {
+                    expect(_post[x]).toEqual(post[x]);
+                }
+
             }
 
             _PostService

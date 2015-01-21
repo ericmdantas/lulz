@@ -47,7 +47,7 @@
         var _onSave = function(error, saved)
         {
             error ? deferred.reject(error)
-                  : deferred.resolve();
+                  : deferred.resolve(saved);
         }
 
         new Post(post)

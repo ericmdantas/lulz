@@ -16,11 +16,7 @@ angular
 
             var _onSuccess = function(user)
             {
-                console.log(user);
-
                 var _user = new User(user);
-
-                console.log(_user);
 
                 $xtorage.save('U', _user);
 

@@ -2,7 +2,7 @@
 
 angular
     .module('post')
-    .service('PostService', ['$q', 'PostResource', function($q, PostResource)
+    .service('PostService', ['$q', 'PostResource', 'Post', function($q, PostResource, Post)
     {
         var _getAll = function()
         {
@@ -68,9 +68,11 @@ angular
                 return deferred.promise;
             }
 
-            var _onSuccess = function()
+            var _onSuccess = function(post)
             {
-                deferred.resolve();
+                var _post = new Post(post);
+
+                deferred.resolve(_post);
             }
 
             var _onError = function(error)

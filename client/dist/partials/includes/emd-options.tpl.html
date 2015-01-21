@@ -1,21 +1,21 @@
 <div class="options transition">
     <ul>
         <li ng-repeat="opt in options"
-            class="hand transition"
+            class="opt hand"
             emd-change-location-to={{opt.location}}
-            ng-if="opt.location">
-            <i class="fa fa-{{opt.icon}}"></i>
+            ng-if="opt.location" style="display: none;">
+                <i class="fa fa-{{opt.icon}}"></i>
         </li>
 
         <li ng-repeat="opt in options"
-            class="hand transition"
+            class="opt hand"
             data-toggle="modal"
             data-target="{{opt.modal.id}}"
-            ng-if="opt.modal">
+            ng-if="opt.modal" style="display: none;">
             <i class="fa fa-{{opt.icon}}"></i>
         </li>
 
-        <li class="plus-info">
+        <li class="plus-info hand">
             <i class="fa fa-plus"></i>
         </li>
     </ul>

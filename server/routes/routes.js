@@ -36,13 +36,6 @@
             .get(postController.getById);
 
 
-        // TROPHIES RELATED
-
-        router
-            .route('/api/trophies')
-            .get(trophiesController.getAll);
-
-
         // URL NOT FOUND
 
         router

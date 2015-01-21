@@ -7,14 +7,10 @@ var lulz = angular
                              'btford.socket-io',
                              'emd.ng-xtorage',
                              'user',
-                             'post',
-                             'trophies'])
+                             'post'])
 
             .constant('POST_LIMIT', 100)
             .constant('BASE_PROTECTED_API', '/api/protected/')
             .constant('OPTIONS', [{icon: 'home', location: '/'},
                                   {icon: 'user', location: '/user'},
-                                  {icon: 'pencil', modal: {id: "#post-modal"}},
-                                  {icon: 'trophy', location: "/trophies"}]);
-                                  //{icon: 'globe', location: '/language'},
-                                  //{icon: 'info', location: '/info'}]);
+                                  {icon: 'pencil', modal: {id: "#post-modal"}}]);

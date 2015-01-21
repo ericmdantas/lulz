@@ -7,6 +7,12 @@ lulz.directive('emdOptions', ['OPTIONS', function(OPTIONS)
     var _link = function(scope, element, attrs)
     {
         scope.options = OPTIONS;
+
+        element.find('.plus-info').on('click', function()
+        {
+            $('.opt').slideToggle();
+            $(this).find('.fa').eq(0).toggleClass('fa-minus');
+        })
     }
 
     var _scope = {};
