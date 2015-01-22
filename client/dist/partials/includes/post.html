@@ -9,25 +9,34 @@
               class="form-group"
               novalidate>
             <div>
-                <label>title</label>
-                <input type="text"
-                       maxlength="100"
-                       ng-maxlength="100"
-                       ng-minlength="1"
-                       required
-                       ng-model="postCtrl.post.title"
-                       class="no-outline form-control input-lg"
-                       autofocus/>
+                <div class="input-group input-group-lg">
 
-                <label class="top-space">image url</label>
-                <input type="text"
-                       maxlength="100"
-                       ng-maxlength="100"
-                       ng-minlength="1"
-                       name="imageUrl"
-                       required
-                       ng-model="postCtrl.post.imageUrl"
-                       class="no-outline form-control input-lg" />
+                    <span class="input-group-addon fa fa-fw fa-pencil"></span>
+
+                    <input type="text"
+                           class="no-outline form-control input-lg"
+                           maxlength="100"
+                           ng-maxlength="100"
+                           ng-minlength="1"
+                           required
+                           ng-model="postCtrl.post.title"
+                           placeholder="post title"
+                           autofocus/>
+                </div>
+
+                <div class="input-group input-group-lg espaco-top">
+                    <span class="input-group-addon fa fa-fw fa-smile-o"></span>
+
+                    <input type="text"
+                           class="no-outline form-control input-lg"
+                           maxlength="100"
+                           ng-maxlength="100"
+                           ng-minlength="1"
+                           name="imageUrl"
+                           required
+                           ng-model="postCtrl.post.imageUrl"
+                           placeholder="image title"/>
+                </div>
             </div>
 
             <div class="pull-right top-space">
@@ -35,16 +44,15 @@
                         class="btn btn-warning btn-lg no-outline hand"
                         ng-show="postCtrl.post.isNew()"
                         ng-click="postCtrl.createPost(postCtrl.post)"
-                        ng-disabled="PostForm.$invalid || postCtrl.post.isInvalid()">spread the lulz!</button>
-
-                <button type="button"
-                        class="btn btn-info btn-lg no-outline hand"
-                        ng-hide="postCtrl.post.isNew()"
-                        ng-disabled="PostForm.$invalid || postCtrl.post.isInvalid()">save changes</button>
+                        ng-disabled="PostForm.$invalid || postCtrl.post.isInvalid()">
+                            <span class="fa fa-fw fa-send"></span>
+                        </button>
 
                 <button type="button"
                         class="btn btn-link btn-lg no-outline hand"
-                        data-dismiss="modal">close</button>
+                        data-dismiss="modal">
+                            <span class="fa fa-fw fa-close"></span>
+                        </button>
             </div>
         </form>
 

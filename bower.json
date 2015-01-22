@@ -20,7 +20,7 @@
     "angular-touch": "~1.3.6",
     "angular-mocks": "~1.3.6",
     "angular-socket-io": "~0.7.0",
-    "ng-xtorage": "0.0.2"
+    "ng-xtorage": "0.0.8"
   },
   "resolutions": {
     "ng-xtorage": "0.0.8"

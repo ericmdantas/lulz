@@ -7,11 +7,12 @@
 
         <!-- build:css css/estilo.min.css?hash=@@hash -->
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/frameworks_overrides.less" />
         <link rel="stylesheet" type="text/css" href="css/fonts.css" />
         <link rel="stylesheet" type="text/css" href="css/style.less" />
         <link rel="stylesheet" type="text/css" href="css/positioning.less" />
-        <link rel="stylesheet" type="text/css" href="css/media_queries.css" />
-        <link rel="stylesheet" type="text/css" href="css/events.css" />
+        <link rel="stylesheet" type="text/css" href="css/media_queries.less" />
+        <link rel="stylesheet" type="text/css" href="css/events.less" />
         <!-- endbuild -->
 
     </head>
@@ -33,10 +34,6 @@
         <div class="container">
             <ng-view></ng-view>
         </div>
-
-        <!-- build:js js/socket.min.js?hash=@@hash -->
-        <script type="text/javascript" src="js/socket/socket.io.js"></script>
-        <!-- endbuild -->
 
         <!-- frameworks -->
         <!-- build:js js/frameworks.min.js?hash=@@hash -->

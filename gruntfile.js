@@ -65,6 +65,7 @@ module.exports = function(grunt)
                     {
                         'client/temp/css/estilo.min.css': [_tempDir + 'bower_components/fontawesome/css/font-awesome.min.css',
                                                            _tempDir + 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                                                           _tempDir + 'css/frameworks_overrides.css',
                                                            _tempDir + 'css/fonts.css',
                                                            _tempDir + 'css/style.css',
                                                            _tempDir + 'css/positioning.css',
@@ -80,12 +81,11 @@ module.exports = function(grunt)
                 {
                     files:
                     {
-                        'client/temp/js/socket.min.js': [_tempDir + 'js/socket/socket.io.js'],
-
                         'client/temp/js/frameworks.min.js': [_tempDir + 'bower_components/jquery/dist/jquery.min.js',
                                                              _tempDir + 'bower_components/angular/angular.min.js',
                                                              _tempDir + 'bower_components/angular-socket-io/socket.min.js',
                                                              _tempDir + 'bower_components/angular-resource/angular-resource.min.js',
+                                                            'node_modules/socket.io-client/socket.io.js',
                                                              _tempDir + 'bower_components/ng-xtorage/ng-xtorage.min.js',
                                                              _tempDir + 'bower_components/**/*.min.js'],
 
@@ -131,6 +131,7 @@ module.exports = function(grunt)
                 {
                     files:
                     {
+                        "client/temp/css/frameworks_overrides.css": "client/dev/css/frameworks_overrides.less",
                         "client/temp/css/style.css":         "client/dev/css/style.less",
                         "client/temp/css/positioning.css":   "client/dev/css/positioning.less",
                         "client/temp/css/media_queries.css": "client/dev/css/media_queries.less",

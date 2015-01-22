@@ -8,31 +8,41 @@
         <form name="UserForm"
               ng-submit="userCtrl.save(userCtrl.user)">
             <div>
-                <label>username</label>
-                <input type="text"
-                       maxlength="33"
-                       ng-maxlength="33"
-                       ng-minlength="3"
-                       required
-                       ng-model="userCtrl.user.username"
-                       class="form-control no-outline input-lg"
-                       ng-blur="userCtrl.lookForUser(username)"
-                       autofocus/>
+                <div class="input-group input-group-lg">
 
-                <label class="block default-margin-top">password</label>
-                <input type="password"
-                       maxlength="33"
-                       ng-maxlength="33"
-                       ng-minlength="3"
-                       required
-                       ng-model="userCtrl.user.password"
-                       class="form-control no-outline input-lg" />
+                    <span class="input-group-addon fa fa-fw fa-envelope-o"></span>
+
+                    <input type="email"
+                           class="form-control no-outline input-lg"
+                           maxlength="33"
+                           ng-maxlength="33"
+                           ng-minlength="3"
+                           required
+                           ng-model="userCtrl.user.username"
+                           ng-blur="userCtrl.lookForUser(username)"
+                           placeholder="E-mail"
+                           autofocus/>
+                    </div>
+
+                <div class="input-group input-group-lg espaco-top">
+
+                    <span class="input-group-addon fa fa-fw fa-lock"></span>
+
+                    <input type="password"
+                           class="form-control no-outline input-lg"
+                           maxlength="33"
+                           ng-maxlength="33"
+                           ng-minlength="3"
+                           placeholder="Password"
+                           ng-model="userCtrl.user.password"
+                           required/>
+                </div>
             </div>
 
             <div class="pull-right top-space">
 
                 <button type="button"
-                        class="btn btn-lg btn-info"
+                        class="btn btn-lg btn-warning"
                         ng-disabled="UserForm.$invalid || userCtrl.user.isInvalid()"
                         ng-click="userCtrl.login(userCtrl.user)">login</button>
 
