@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha tests/backend --watch --recursive --check-leaks --reporter min"
+    "test": "mocha tests/backend --watch --recursive --check-leaks --reporter min",
+    "test-on-travis": "mocha tests/backend --recursive --check-leaks --reporter min"
   },
   "author": "Eric Mendes Dantas",
   "license": "ISC",
