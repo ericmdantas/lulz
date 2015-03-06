@@ -1,7 +1,7 @@
 "use strict";
 
 var Authentication = require('../../../server/services/Authentication');
-var User = require('../../../server/models/User');
+var User = require('../../../server/dal/UserDAO');
 var helper = require('../helper/helper');
 var expect = require('chai').expect;
 

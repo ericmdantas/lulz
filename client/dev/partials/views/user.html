@@ -58,16 +58,16 @@
          class="card"
          ng-if="!userCtrl.user.isNew()">
 
-        <h1 class="title">about {{userCtrl.user.username}}</h1>
+        <h1 class="title">about <span ng-bind="userCtrl.user.username"></span></h1>
 
         <div id="user-info-container" class="card-padding">
             <div>
                 <i class="fa fa-user icon-rounded"></i>
-                <span id="username">{{userCtrl.user.username}}</span>
+                <span id="username" ng-bind="userCtrl.user.username"></span>
             </div>
 
             <div class="default-margin-top">
-                <p id="user-type">user is a <span class="important">{{userCtrl.user.type}}</span>.</p>
+                <p id="user-type">user is a <span class="important" ng-bind="userCtrl.user.type"></span>.</p>
             </div>
 
             <div class="default-margin-top">
@@ -79,7 +79,7 @@
             </div>
 
             <div class="default-margin-top">
-                <p id="user-loved-back">received <span class="important">{{userCtrl.user.smiles}}</span> smiles.</p>
+                <p id="user-loved-back">received <span class="important" ng-bind="userCtrl.user.smiles"></span> smiles.</p>
             </div>
         </div>
 

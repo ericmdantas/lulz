@@ -149,6 +149,5 @@ module.exports = function(grunt)
     // register
     grunt.registerTask('build', ['clean:temp', 'clean:dist', 'less', 'copy:temp', 'less', 'cssmin:build', 'uglify', 'usemin', 'replace', 'copy:dist', 'clean:temp']);
     grunt.registerTask('test', ['karma:unit']);
-    grunt.registerTask('test-travis', ['karma:unit']);
     grunt.registerTask('dist', ['karma:unit', 'clean:temp', 'clean:dist', 'less', 'copy:temp', 'less', 'cssmin:build', 'uglify', 'usemin', 'replace', 'copy:dist', 'clean:temp']);
 }

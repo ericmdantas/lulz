@@ -1,16 +1,15 @@
 language: node_js
 
-node_js: "0.10"
+node_js: "iojs"
 
 before_script:
   - npm install -g bower grunt-cli mocha
-  - npm run-script test-on-travis
   - bower install
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 
 script:
-  - grunt test-travis
+  - grunt test
   - npm run-script test-on-travis
 
 services: mongodb

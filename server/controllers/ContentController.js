@@ -1,24 +1,29 @@
 "use strict";
 
-(function(fs)
+var fs = require('fs');
+
+var ContentController = function(){}
+
+var _send = function(res, html)
 {
-    var _send = function(res, html)
-    {
-        fs.readFile(html, function(err, html)
+    var _info = null;
+
+    fs
+        .createReadStream(html)
+        .on('data', function(chunk)
         {
-            if (err)
-                throw err;
-
+            _info += chunk;
+        })
+        .on('end', function()
+        {
             res.setHeader('Content-Type', 'text/html');
-            res.send(html);
-        });
-    }
+            res.send(_info);
+        })
+}
 
-    var _sendMainPage = function(req, res)
-    {
-        _send(res, './client/dist/index.html');
-    }
+ContentController.sendMainPage = function(req, res)
+{
+    _send(res, './client/dist/index.html');
+}
 
-    exports.sendMainPage = _sendMainPage;
-
-}(require('fs')))
+module.exports = ContentController;

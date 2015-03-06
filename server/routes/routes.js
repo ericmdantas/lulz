@@ -1,54 +1,52 @@
 "use strict";
 
-(function(Auth, contentController, userController, postController, trophiesController)
+var Auth = require('../services/Authentication');
+var contentController = require('../controllers/ContentController');
+var userController = require('../controllers/UserController');
+var postController = require('../controllers/PostController');
+
+const BASE_PROTECTED_API = '/api/protected/';
+
+
+var _init = function(router, app)
 {
-    var BASE_PROTECTED_API = '/api/protected/';
+    // MAIN PAGE
 
-    var _init = function(router, app)
-    {
-        // MAIN PAGE
-
-        router
-            .route('/')
-            .get(contentController.sendMainPage);
+    router
+        .route('/')
+        .get(contentController.sendMainPage);
 
 
-        // USER RELATED
+    // USER RELATED
 
-        router
-            .route(BASE_PROTECTED_API + 'user/login')
-            .post(userController.lookForUser)
+    router
+        .route(BASE_PROTECTED_API + 'user/login')
+        .post(userController.lookForUser)
 
-        router
-            .route(BASE_PROTECTED_API + 'user')
-            .post(userController.createUser);
-
-
-        // POST RELATED
-
-        router
-            .route(BASE_PROTECTED_API + 'post')
-            .get(postController.getAll)
-            .post(Auth.isLoggedIn, postController.createPost);
-
-        router
-            .route(BASE_PROTECTED_API + 'post/:id')
-            .get(postController.getById);
+    router
+        .route(BASE_PROTECTED_API + 'user')
+        .post(userController.createUser);
 
 
-        // URL NOT FOUND
+    // POST RELATED
 
-        router
-            .route('*')
-            .get(contentController.sendMainPage);
+    router
+        .route(BASE_PROTECTED_API + 'post')
+        .get(postController.getAll)
+        .post(Auth.isLoggedIn, postController.createPost);
 
-        app.use('/', router);
-    }
+    router
+        .route(BASE_PROTECTED_API + 'post/:id')
+        .get(postController.getById);
 
-    exports.init = _init;
 
-}(require('../services/Authentication'),
-  require('../controllers/ContentController'),
-  require('../controllers/UserController'),
-  require('../controllers/PostController'),
-  require('../controllers/TrophiesController')))
+    // URL NOT FOUND
+
+    router
+        .route('*')
+        .get(contentController.sendMainPage);
+
+    app.use('/', router);
+}
+
+exports.init = _init;

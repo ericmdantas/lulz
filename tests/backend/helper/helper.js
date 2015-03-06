@@ -4,7 +4,7 @@
 {
     var _invalidStrings = function()
     {
-        return [null, undefined, ' ', '', true, false, 0, 1, function(){}];
+        return [null, undefined, true, false, 0, 1, function(){}];
     }
 
     var _invalidObjects = function()
@@ -58,5 +58,5 @@
     exports.configMongoose = _configMongoose;
 
 }(require('mongoose'),
-  require('../../../server/models/User'),
-  require('../../../server/models/Post')));
+  require('../../../server/dal/UserDAO'),
+  require('../../../server/dal/PostDAO')));

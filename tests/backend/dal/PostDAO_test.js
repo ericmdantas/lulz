@@ -2,8 +2,8 @@
 
 var expect = require('chai').expect;
 var helper = require('../helper/helper');
-var _Post = require('../../../server/models/Post');
-var _User = require('../../../server/models/User');
+var _Post = require('../../../server/dal/PostDAO');
+var _User = require('../../../server/dal/UserDAO');
 
 describe('Post', function()
 {
@@ -82,7 +82,7 @@ describe('Post', function()
             {
                 expect(error).to.be.defined;
                 expect(error).to.be.an.instanceof(Error);
-                expect(error).to.match(/Não é possível buscar pelo post, id inválido./);
+                expect(error.message).to.match(/Não é possível buscar pelo post, id inválido./);
             }
 
             for (var i = 0; i < _invalidIds.length; i++)
